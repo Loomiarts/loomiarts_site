@@ -11,7 +11,7 @@ class SiteApp extends StatelessWidget {
     return MaterialApp(
       title: 'Loomiarts',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFA20033)),
         useMaterial3: true,
       ),
       home: const HomeView()

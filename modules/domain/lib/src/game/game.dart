@@ -9,6 +9,7 @@ class GameInfo {
 /// Model containing data for a single game.
 class Game {
   String name = "";
+  String posterImage = "";
   String developedBy = "";
   String publishedBy = "";
   String genre = "";
