@@ -18,30 +18,39 @@ class HomeTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: PhysicalModel(
-        color: Colors.black,
-        elevation: 8,
-        //child: AspectRatio(
-        //  aspectRatio: 0.73,
-          child: ConstrainedBox(
+        color: Colors.white,
+        elevation: 20,
+        child: 
+          ConstrainedBox(
             constraints: const BoxConstraints(minWidth: 300, maxWidth: 500),
-            child: Stack(
-              alignment: AlignmentDirectional.bottomEnd,
-              children: [
-                Image.asset(
-                  imageAsset,
-                  fit: BoxFit.fill,
-                ),
-                Container(
-                  color: theme.colorScheme.primary.withOpacity(0.8),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Text(title, style: titleStyle,)
+            child: AspectRatio(
+              aspectRatio: 0.73,
+              child: Stack(
+                fit: StackFit.expand,
+                alignment: AlignmentDirectional.center,
+                children: [
+                  Image.asset(
+                    imageAsset,
+                    fit: BoxFit.fitWidth,
                   ),
-                )
-              ],
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const Expanded(child: SizedBox()),
+                      Container(
+                        color: theme.colorScheme.primary.withOpacity(0.8),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
+                          child: Text(title, style: titleStyle,)
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             )
-          ),
-        //),
+        ),
       ),
     );
   }

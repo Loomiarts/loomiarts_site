@@ -23,21 +23,24 @@ class HomeViewState extends State<HomeView> {
     final viewModel = HomeViewModel(HomeRouterImpl(), GameRepositoryImpl());
     viewModel.load();
     return Scaffold(
-      body: ListView(
-        children: [
-          Wrap(
-            children: [
-              for (var game in viewModel.games) HomeTile(
-                title: "Jogo",
-                imageAsset: game.posterImage
-              ),
-              const HomeTile(
-                title: "Sobre",
-                imageAsset: 'assets/loomiarts_logo.png'
-              ),
-            ],
-          ),
-        ],
+      body: Center(
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            Wrap(
+              children: [
+                for (var game in viewModel.games) HomeTile(
+                  title: "Jogo",
+                  imageAsset: game.posterImage
+                ),
+                const HomeTile(
+                  title: "Sobre",
+                  imageAsset: 'assets/loomiarts_logo.png'
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
