@@ -1,9 +1,7 @@
-import 'package:application/src/home/home_router.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:application/application.dart';
-import 'package:domain/domain.dart';
 import 'home_view_model_test.mocks.dart';
 
 @GenerateMocks([HomeRouter, GameRepository])
