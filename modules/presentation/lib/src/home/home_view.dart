@@ -28,6 +28,7 @@ class HomeViewState extends State<HomeView> {
           shrinkWrap: true,
           children: [
             Wrap(
+              alignment: WrapAlignment.center,
               children: [
                 for (var game in viewModel.games) HomeTile(
                   title: "Jogo",
