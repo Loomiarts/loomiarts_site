@@ -27,36 +27,41 @@ class AboutPageState extends State<AboutPage> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Padding(
+        child: ListView(
           padding: const EdgeInsets.all(40.0),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1000.0),
-            child: ListView(
-              children: [
-                SizedBox(
-                  height: 100,
-                  child: Image.asset(
-                    'assets/loomiarts_logo_transparent.png',
-                    alignment: Alignment.centerLeft,
-                  )
+          children: [
+            Center(
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 1000.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 100,
+                      child: Image.asset(
+                        'assets/loomiarts_logo_transparent.png',
+                        alignment: Alignment.centerLeft,
+                      )
+                    ),
+                    const SizedBox(height: 40),
+                    TextSection(
+                      title: 'Sobre',
+                      text: viewModel.about.text
+                    ),
+                    const SizedBox(height: 20),
+                    ExternalLinksSection(
+                      title: 'Redes sociais',
+                      externalLinks: viewModel.about.socialMediaLinks,
+                      onLinkOpened: (externalLink) {
+                        viewModel.openSocialMediaLink(externalLink);
+                      }
+                    )
+                  ]
                 ),
-                const SizedBox(height: 40),
-                TextSection(
-                  title: 'Sobre',
-                  text: viewModel.about.text
-                ),
-                const SizedBox(height: 20),
-                ExternalLinksSection(
-                  title: 'Redes sociais',
-                  externalLinks: viewModel.about.socialMediaLinks,
-                  onLinkOpened: (externalLink) {
-                    viewModel.openSocialMediaLink(externalLink);
-                  }
-                )
-              ]
+              ),
             ),
-          ),
-        )
+          ]
+        ),
       ),
     );
   }
