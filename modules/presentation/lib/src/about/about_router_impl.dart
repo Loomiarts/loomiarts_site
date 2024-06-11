@@ -9,7 +9,6 @@ class AboutRouterImpl implements AboutRouter {
 
   @override
   void navigateToSocialMediaLink(ExternalLink link) {
-    print(link.url);
     launchUrlString(link.url, mode: LaunchMode.externalApplication);
   }
 }

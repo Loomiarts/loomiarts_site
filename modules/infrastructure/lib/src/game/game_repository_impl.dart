@@ -34,7 +34,7 @@ class GameRepositoryImpl implements GameRepository {
       ]
       ..socialMediaLinks = [
         ExternalLink('Discord', 'https://discord.gg/Zw4rbUT'),
-        ExternalLink('Twitter / X', 'http://twitter.com/51_squadron')
+        ExternalLink('Twitter / X', 'http://twitter.com/squad51game')
       ]
       ..additionalLinks = [
         ExternalLink('Fehorama Filmes', 'https://fehoramafilmes.wixsite.com/fehoramafilmes'),
