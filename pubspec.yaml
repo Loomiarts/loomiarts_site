@@ -55,6 +55,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/squad51/banner.png
     - assets/squad51/poster.png
     - assets/loomiarts_logo.png
     - assets/loomiarts_logo_transparent.png

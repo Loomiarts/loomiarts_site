@@ -21,7 +21,7 @@ class PageSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title, style: titlesStyle),
-        const SizedBox(height: 20),
+        const SizedBox(height: 15),
         child
       ],
     );

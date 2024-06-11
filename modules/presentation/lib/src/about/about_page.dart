@@ -40,7 +40,7 @@ class AboutPageState extends State<AboutPage> {
                     alignment: Alignment.centerLeft,
                   )
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
                 TextSection(
                   title: 'Sobre',
                   text: viewModel.about.text

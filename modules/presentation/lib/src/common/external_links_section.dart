@@ -21,7 +21,8 @@ base class ExternalLinksSection extends StatelessWidget {
     return PageSection(
       title: title,
       child: Wrap(
-      spacing: 8,
+        spacing: 8,
+        runSpacing: 8,
         children: [
           for (var socialMediaLink in externalLinks)
             ElevatedButton(

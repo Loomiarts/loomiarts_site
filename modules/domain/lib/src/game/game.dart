@@ -10,6 +10,7 @@ class GameInfo {
 class Game {
   String name = "";
   String posterImage = "";
+  String bannerImage = "";
   String developedBy = "";
   String publishedBy = "";
   String genre = "";
