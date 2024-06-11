@@ -26,7 +26,7 @@ class HomeTile extends StatelessWidget {
             aspectRatio: 0.73,
             child: Stack(
               fit: StackFit.expand,
-              alignment: AlignmentDirectional.center,
+              alignment: AlignmentDirectional.bottomEnd,
               children: [
                 Material(
                   color: Colors.white,
@@ -43,8 +43,8 @@ class HomeTile extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.end,
+                    verticalDirection: VerticalDirection.up,
                     children: [
-                      const Expanded(child: SizedBox()),
                       Container(
                         color: theme.colorScheme.primary.withOpacity(0.8),
                         child: Padding(
@@ -62,5 +62,4 @@ class HomeTile extends StatelessWidget {
       ),
     );
   }
-  
 }
