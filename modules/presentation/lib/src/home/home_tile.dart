@@ -20,20 +20,27 @@ class HomeTile extends StatelessWidget {
       child: PhysicalModel(
         color: Colors.white,
         elevation: 20,
-        child: 
-          ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 300, maxWidth: 500),
-            child: AspectRatio(
-              aspectRatio: 0.73,
-              child: Stack(
-                fit: StackFit.expand,
-                alignment: AlignmentDirectional.center,
-                children: [
-                  Image.asset(
-                    imageAsset,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: 300, maxWidth: 500),
+          child: AspectRatio(
+            aspectRatio: 0.73,
+            child: Stack(
+              fit: StackFit.expand,
+              alignment: AlignmentDirectional.center,
+              children: [
+                Material(
+                  color: Colors.white,
+                  child: Ink.image(
+                    image: AssetImage(imageAsset),
                     fit: BoxFit.fitWidth,
+                    child: InkWell(
+                      onTap: () {
+                      },
+                    ),
                   ),
-                  Column(
+                ),
+                IgnorePointer(
+                  child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -47,9 +54,10 @@ class HomeTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
-              ),
-            )
+                ),
+              ],
+            ),
+          )
         ),
       ),
     );
