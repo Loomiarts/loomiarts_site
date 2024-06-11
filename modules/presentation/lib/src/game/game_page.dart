@@ -35,6 +35,12 @@ class GamePageState extends State<GamePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          PhysicalModel(
+            color: Colors.white,
+            elevation: 20,
+            child: Image.asset(game.bannerImage)
+          ),
+          const SizedBox(height: 40),
           TextSection(
             title: game.name,
             text: game.name
