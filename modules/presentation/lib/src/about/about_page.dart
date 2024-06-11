@@ -1,6 +1,9 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
 import 'package:infrastructure/infrastructure.dart';
+import 'package:presentation/src/common/page_section.dart';
+import '../common/text_section.dart';
+import '../common/external_links_section.dart';
 import 'about_router_impl.dart';
 
 /// The view for the about page.
@@ -18,10 +21,6 @@ class AboutPage extends StatefulWidget {
 class AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
-
-    final theme = Theme.of(context);
-    final titlesStyle = theme.textTheme.headlineLarge;
-    final bodyStyle = theme.textTheme.bodyLarge;
 
     final viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl());
     viewModel.load();
@@ -43,23 +42,17 @@ class AboutPageState extends State<AboutPage> {
                   )
                 ),
                 const SizedBox(height: 20),
-                Text('Sobre', style: titlesStyle),
+                TextSection(
+                  title: 'Sobre',
+                  text: viewModel.about.text
+                ),
                 const SizedBox(height: 20),
-                Text(viewModel.about.text, style: bodyStyle),
-                const SizedBox(height: 20),
-                Text('Redes sociais', style: titlesStyle),
-                const SizedBox(height: 20),
-                Wrap(
-                  spacing: 8,
-                  children: [
-                    for (var socialMediaLink in viewModel.about.socialMediaLinks)
-                      ElevatedButton(
-                        onPressed: () {
-                          viewModel.openSocialMediaLink(socialMediaLink);
-                        },
-                        child: Text(socialMediaLink.name)
-                      )
-                  ],
+                ExternalLinksSection(
+                  title: 'Redes sociais',
+                  externalLinks: viewModel.about.socialMediaLinks,
+                  onLinkOpened: (externalLink) {
+                    viewModel.openSocialMediaLink(externalLink);
+                  }
                 )
               ]
             ),
