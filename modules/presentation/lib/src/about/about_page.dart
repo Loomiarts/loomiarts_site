@@ -27,6 +27,7 @@ class AboutPageState extends State<AboutPage> {
     viewModel.load();
 
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(40.0),
