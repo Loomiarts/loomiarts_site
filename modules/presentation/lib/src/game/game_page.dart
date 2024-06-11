@@ -1,5 +1,6 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/src/common/page_section.dart';
 import '../common/external_links_section.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
@@ -31,6 +32,11 @@ class GamePageState extends State<GamePage> {
 
     final viewModel = GameViewModel(GameRouterImpl(), game);
 
+    final theme = Theme.of(context);
+    final featuresTitleStyle = theme.textTheme.headlineSmall;
+    final featuresTextStyle = theme.textTheme.bodyLarge;
+    final awardsTextStyle = theme.textTheme.bodyLarge;
+
     return PageDecorator(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +49,7 @@ class GamePageState extends State<GamePage> {
           const SizedBox(height: 40),
           TextSection(
             title: game.name,
-            text: game.name
+            text: game.shortDescription
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
@@ -62,13 +68,77 @@ class GamePageState extends State<GamePage> {
             }
           ),
           const SizedBox(height: 20),
+          PageSection(
+            title: 'Características',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (var feature in game.features)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 15),
+                      Text(feature.title, style: featuresTitleStyle),
+                      const SizedBox(height: 10),
+                      Text(feature.text, style: featuresTextStyle),
+                    ],
+                  )
+              ],
+            )
+          ),
+          const SizedBox(height: 20),
           ExternalLinksSection(
             title: 'Redes sociais',
             externalLinks: game.socialMediaLinks,
             onLinkOpened: (externalLink) {
               viewModel.openSocialMediaLink(externalLink);
             }
-          )
+          ),
+          const SizedBox(height: 20),
+          TextSection(
+            title: 'Nome internacional',
+            text: game.internationalName
+          ),
+          const SizedBox(height: 20),
+          TextSection(
+            title: 'Gênero',
+            text: game.genre
+          ),
+          const SizedBox(height: 20),
+          PageSection(
+            title: 'Prêmios',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (var award in game.awards)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 15),
+                      Text('• $award', style: awardsTextStyle),
+                    ],
+                  )
+              ],
+            )
+          ),
+          const SizedBox(height: 20),
+          TextSection(
+            title: 'Desenvolvido por',
+            text: game.developedBy
+          ),
+          const SizedBox(height: 20),
+          TextSection(
+            title: 'Publicado por',
+            text: game.publishedBy
+          ),
+          const SizedBox(height: 20),
+          ExternalLinksSection(
+            title: 'Links adicionais',
+            externalLinks: game.additionalLinks,
+            onLinkOpened: (externalLink) {
+              viewModel.openSocialMediaLink(externalLink);
+            }
+          ),
         ]
       )
     );

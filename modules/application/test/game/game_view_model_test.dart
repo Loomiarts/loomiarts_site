@@ -44,5 +44,13 @@ void main() {
       // then:
       verify(router.navigateToExternalLink(ExternalLink('Trailer', 'https://youtube.com/123456')));
     });
+
+    test('navigates to additional link', () {
+      // when:
+      viewModel.openAdditionalLink(ExternalLink('Other', 'www.other.com'));
+
+      // then:
+      verify(router.navigateToExternalLink(ExternalLink('Other', 'www.other.com')));
+    });
   });
 }

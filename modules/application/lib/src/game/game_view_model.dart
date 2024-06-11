@@ -24,4 +24,8 @@ class GameViewModel {
   void openVideo(ExternalLink link) {
     _router.navigateToExternalLink(link);
   }
+
+  void openAdditionalLink(ExternalLink link) {
+    _router.navigateToExternalLink(link);
+  }
 }
