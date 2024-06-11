@@ -5,8 +5,14 @@ class HomeTile extends StatelessWidget {
 
   final String imageAsset;
   final String title;
+  final void Function() onTap;
 
-  const HomeTile({super.key, required this.title, required this.imageAsset});
+  const HomeTile({
+    super.key,
+    required this.title,
+    required this.imageAsset,
+    required this.onTap
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +41,7 @@ class HomeTile extends StatelessWidget {
                     fit: BoxFit.fitWidth,
                     child: InkWell(
                       onTap: () {
+                        onTap();
                       },
                     ),
                   ),

@@ -1,5 +1,5 @@
-import 'home_router.dart';
 import 'package:domain/domain.dart';
+import 'home_router.dart';
 
 class HomeViewModel {
 

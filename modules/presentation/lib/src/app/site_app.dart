@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../home/home_view.dart';
+import '../home/home_page.dart';
 
 /// Main app implementation.
 class SiteApp extends StatelessWidget {
@@ -14,7 +14,7 @@ class SiteApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFA20033)),
         useMaterial3: true,
       ),
-      home: const HomeView()
+      home: const HomePage()
     );
   }
 }
