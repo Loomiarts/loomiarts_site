@@ -18,6 +18,6 @@ class AboutViewModel {
   }
 
   void openSocialMediaLink(ExternalLink link) {
-    
+    _router.navigateToSocialMediaLink(link);
   }
 }
