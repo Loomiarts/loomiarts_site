@@ -1,8 +1,8 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
-import 'package:infrastructure/infrastructure.dart';
-import '../common/text_section.dart';
 import '../common/external_links_section.dart';
+import '../common/page_decorator.dart';
+import '../common/text_section.dart';
 import 'game_router_impl.dart';
 
 /// The view for the game page.
@@ -31,49 +31,40 @@ class GamePageState extends State<GamePage> {
 
     final viewModel = GameViewModel(GameRouterImpl(), game);
 
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(40.0),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1000.0),
-            child: ListView(
-              children: [
-                TextSection(
-                  title: game.name,
-                  text: game.name
-                ),
-                const SizedBox(height: 20),
-                ExternalLinksSection(
-                  title: 'Lojas',
-                  externalLinks: game.stores,
-                  onLinkOpened: (externalLink) {
-                    viewModel.openStore(externalLink);
-                  }
-                ),
-                const SizedBox(height: 20),
-                ExternalLinksSection(
-                  title: 'Vídeos',
-                  externalLinks: game.videos,
-                  onLinkOpened: (externalLink) {
-                    viewModel.openStore(externalLink);
-                  }
-                ),
-                const SizedBox(height: 20),
-                ExternalLinksSection(
-                  title: 'Redes sociais',
-                  externalLinks: game.socialMediaLinks,
-                  onLinkOpened: (externalLink) {
-                    viewModel.openSocialMediaLink(externalLink);
-                  }
-                )
-              ]
-            ),
+    return PageDecorator(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextSection(
+            title: game.name,
+            text: game.name
           ),
-        )
-      ),
+          const SizedBox(height: 20),
+          ExternalLinksSection(
+            title: 'Lojas',
+            externalLinks: game.stores,
+            onLinkOpened: (externalLink) {
+              viewModel.openStore(externalLink);
+            }
+          ),
+          const SizedBox(height: 20),
+          ExternalLinksSection(
+            title: 'Vídeos',
+            externalLinks: game.videos,
+            onLinkOpened: (externalLink) {
+              viewModel.openStore(externalLink);
+            }
+          ),
+          const SizedBox(height: 20),
+          ExternalLinksSection(
+            title: 'Redes sociais',
+            externalLinks: game.socialMediaLinks,
+            onLinkOpened: (externalLink) {
+              viewModel.openSocialMediaLink(externalLink);
+            }
+          )
+        ]
+      )
     );
   }
-  
 }
