@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:application/application.dart';
 import 'package:infrastructure/infrastructure.dart';
 import 'package:presentation/src/about/about_page.dart';
+import 'package:presentation/src/game/game_page.dart';
 
 import 'home_router_impl.dart';
 import 'home_tile.dart';
@@ -35,6 +36,9 @@ class HomePageState extends State<HomePage> {
                   title: "Jogo",
                   imageAsset: game.posterImage,
                   onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => GamePage(game: game))
+                    );
                   },
                 ),
                 HomeTile(

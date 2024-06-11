@@ -4,4 +4,9 @@ class ExternalLink {
   String url = "";
 
   ExternalLink(this.name, this.url);
+
+  @override
+  bool operator ==(covariant ExternalLink e) {
+    return name == e.name && url == e.url;
+  }
 }

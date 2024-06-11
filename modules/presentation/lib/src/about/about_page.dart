@@ -1,7 +1,6 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
 import 'package:infrastructure/infrastructure.dart';
-import 'package:presentation/src/common/page_section.dart';
 import '../common/text_section.dart';
 import '../common/external_links_section.dart';
 import 'about_router_impl.dart';

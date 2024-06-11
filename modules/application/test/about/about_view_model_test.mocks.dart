@@ -4,8 +4,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:application/src/about/about_router.dart' as _i3;
-import 'package:domain/src/about/about.dart' as _i2;
-import 'package:domain/src/about/about_repository.dart' as _i4;
+import 'package:domain/domain.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -47,12 +46,21 @@ class MockAboutRouter extends _i1.Mock implements _i3.AboutRouter {
         ),
         returnValueForMissingStub: null,
       );
+
+  @override
+  void navigateToSocialMediaLink(_i2.ExternalLink? link) => super.noSuchMethod(
+        Invocation.method(
+          #navigateToSocialMediaLink,
+          [link],
+        ),
+        returnValueForMissingStub: null,
+      );
 }
 
 /// A class which mocks [AboutRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAboutRepository extends _i1.Mock implements _i4.AboutRepository {
+class MockAboutRepository extends _i1.Mock implements _i2.AboutRepository {
   MockAboutRepository() {
     _i1.throwOnMissingStub(this);
   }
