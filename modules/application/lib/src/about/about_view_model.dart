@@ -16,4 +16,8 @@ class AboutViewModel {
   void navigateBack() {
     _router.navigateBack();
   }
+
+  void openSocialMediaLink(ExternalLink link) {
+    
+  }
 }

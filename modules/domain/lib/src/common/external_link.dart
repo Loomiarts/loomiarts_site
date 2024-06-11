@@ -2,4 +2,6 @@
 class ExternalLink {
   String name = "";
   String url = "";
+
+  ExternalLink(this.name, this.url);
 }

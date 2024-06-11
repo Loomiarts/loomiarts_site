@@ -35,7 +35,6 @@ class HomePageState extends State<HomePage> {
                   title: "Jogo",
                   imageAsset: game.posterImage,
                   onTap: () {
-                    print(game.name);
                   },
                 ),
                 HomeTile(
