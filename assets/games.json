@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Esquadrão 51 Contra os Discos Voadores",
+        "developedBy": "Loomiarts e Fehorama Filmes",
+        "publishedBy": "WhisperGames e Assemble Entertainment",
+        "genre": "Shoot'em up",
+        "shortDescription": "Esquadrão 51 Contra dos Discos Voadores é um shoot'em up para PC e consoles com estética de filmes de ficção científica dos anos 50. Desenvolvido por Loomiarts e Fehorama Filmes e publicado por WhisperGames e Assemble Entertainment. Já disponível para PC (Steam), Nintendo Switch, Xbox e PlayStation.",
+        "internationalName": "Squad 51 vs. the Flying Saucers",
+        "awards": [
+            "BIG Festival 2017: Melhor Arte (finalista), Melhor Jogo Brasileiro (finalista)",
+            "Festival de Jogos do SBGames 2017: Melhor Visual (vencedor), Melhor Áudio (finalista), Melhor Tecnologia (finalista)",
+            "Epic MegaGrants (contemplado)"
+        ],
+        "features": [
+            {
+                "title": "Gameplay clássico",
+                "text": "Esquadrão 51 Contra os Discos Voadores é um SHOOT’EM UP! com quatro aeronaves diferentes para jogar e variadas armas especiais."
+            },
+            {
+                "title": "Experiência cinemática",
+                "text": "Gloriosa estética em preto-e-branco, cutscenes em live-action e vozes dubladas contarão a história da batalha entre o Esquadrão 51 e a supremacia alienígena do Diretor Zarog."
+            },
+            {
+                "title": "11 fases",
+                "text": "Combata naves inimigas e chefões em diferentes ambientes - montanhas nevadas, florestas, paisagens urbanas, entre outros."
+            },
+            {
+                "title": "Multijogador",
+                "text": "Se sentindo sozinho contra alienígenas? Convide um amigo! Um segundo jogador pode entrar em qualquer nível quando quiser. Junte pontos com seu amigo e desbloqueiem juntos nova armas especiais e upgrades."
+            }
+        ],
+        "stores": [
+            {
+                "name": "Steam",
+                "url": "https://store.steampowered.com/app/1378800/"
+            },
+            {
+                "name": "Nintendo eShop",
+                "url": "https://www.nintendo.com/us/store/products/squad-51-vs-the-flying-saucers-switch/"
+            },
+            {
+                "name": "Microsoft Store (Xbox)",
+                "url": "https://www.xbox.com/en-us/games/store/squad-51-vs-the-flying-saucers/9p33g235jfbt"
+            },
+            {
+                "name": "PlayStation Store",
+                "url": "https://store.playstation.com/pt-br/product/UP5997-CUSA31360_00-0502192421273084"
+            }
+        ],
+        "videos": [
+            {
+                "name": "Trailer",
+                "url": "https://www.youtube.com/watch?v=sK1WevYwhpI"
+            }
+        ],
+        "socialMediaLinks": [
+            {
+                "name": "Discord",
+                "url": "https://discord.gg/Zw4rbUT"
+            },
+            {
+                "name": "Twitter / X",
+                "url": "http://twitter.com/squad51game"
+            }
+        ],
+        "additionalLinks": [
+            {
+                "name": "Fehorama Filmes",
+                "url": "https://fehoramafilmes.wixsite.com/fehoramafilmes"
+            },
+            {
+                "name": "WhisperGames",
+                "url": "http://www.whisperinteractive.com/"
+            }
+      ],
+      "posterImage": "assets/squad51/poster.png",
+      "bannerImage": "assets/squad51/banner.png"
+    }
+]
