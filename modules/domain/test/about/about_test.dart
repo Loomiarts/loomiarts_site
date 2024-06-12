@@ -5,7 +5,7 @@ void main() {
 
   group('initializes an About object', () {
 
-    test('gets the string with toString', () {
+    test('extracts from JSON', () {
       // given:
       final json = {
         'text': 'sample text',
