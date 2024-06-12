@@ -43,12 +43,17 @@ class AboutPageState extends State<AboutPage> {
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
-            title: 'Redes sociais',
+            title: 'Redes sociais e outros links',
             externalLinks: viewModel.about.socialMediaLinks,
             onLinkOpened: (externalLink) {
               viewModel.openSocialMediaLink(externalLink);
             }
-          )
+          ),
+          const SizedBox(height: 20),
+          TextSection(
+            title: 'Contato',
+            text: viewModel.about.email
+          ),
         ]
       ),
     );

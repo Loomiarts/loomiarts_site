@@ -13,7 +13,8 @@ Tampouco me considero, no entanto, um desenvolvedor “solo”: embora tenha com
       ..email = 'contato@loomiarts.com'
       ..socialMediaLinks = [
         ExternalLink('Twitter / X', 'https://twitter.com/loomiarts'),
-        ExternalLink('YouTube', 'https://www.youtube.com/channel/UCSTsJXCSFYo009D0YAtkqSQ')
+        ExternalLink('YouTube', 'https://www.youtube.com/channel/UCSTsJXCSFYo009D0YAtkqSQ'),
+        ExternalLink('GitHub', 'https://github.com/Loomiarts'),
       ];
   }
 }
