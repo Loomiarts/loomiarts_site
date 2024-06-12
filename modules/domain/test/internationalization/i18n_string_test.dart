@@ -11,8 +11,8 @@ void main() {
 
       // then:
       expect(str.toString(), 'hello, world!');
-      expect(str.toString(locale: 'pt'), 'olá, mundo!');
-      expect(str.toString(locale: 'unknow'), 'hello, world!');
+      expect(str.toString(languageCode: 'pt'), 'olá, mundo!');
+      expect(str.toString(languageCode: 'unknow'), 'hello, world!');
     });
 
     test('extracts one object from JSON', () {

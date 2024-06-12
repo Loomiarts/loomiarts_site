@@ -30,9 +30,9 @@ class I18nString {
   }
 
   @override
-  String toString({String? locale}) {
-    if (locale != null) {
-      return localizedStrings[locale] ?? base;
+  String toString({String? languageCode}) {
+    if (languageCode != null) {
+      return localizedStrings[languageCode] ?? base;
     } else {
       return base;
     }

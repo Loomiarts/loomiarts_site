@@ -6,6 +6,7 @@ import 'package:presentation/src/game/game_page.dart';
 
 import 'home_router_impl.dart';
 import 'home_tile.dart';
+import '../internationalization/site_texts.dart';
 
 /// The view for the home page.
 class HomePage extends StatefulWidget {
@@ -22,8 +23,11 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    
     final viewModel = HomeViewModel(HomeRouterImpl(), GameRepositoryImpl());
     viewModel.load();
+    final siteTexts = SiteTexts.of(context);
+
     return Scaffold(
       body: Center(
         child: ListView(
@@ -33,7 +37,7 @@ class HomePageState extends State<HomePage> {
               alignment: WrapAlignment.center,
               children: [
                 for (var game in viewModel.games) HomeTile(
-                  title: "Jogo",
+                  title: siteTexts.get("home.game"),
                   imageAsset: game.posterImage,
                   onTap: () {
                     Navigator.of(context).push(
@@ -42,7 +46,7 @@ class HomePageState extends State<HomePage> {
                   },
                 ),
                 HomeTile(
-                  title: "Sobre",
+                  title: siteTexts.get("home.about"),
                   imageAsset: 'assets/loomiarts_logo.png',
                   onTap: () {
                     Navigator.of(context).push(

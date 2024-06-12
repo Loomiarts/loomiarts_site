@@ -1,9 +1,11 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/src/common/page_section.dart';
+
+import '../common/page_section.dart';
 import '../common/external_links_section.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
+import '../internationalization/site_texts.dart';
 import 'game_router_impl.dart';
 
 /// The view for the game page.
@@ -31,6 +33,7 @@ class GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
 
     final viewModel = GameViewModel(GameRouterImpl(), game);
+    final siteTexts = SiteTexts.of(context);
 
     final theme = Theme.of(context);
     final featuresTitleStyle = theme.textTheme.headlineSmall;
@@ -53,7 +56,7 @@ class GamePageState extends State<GamePage> {
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
-            title: 'Lojas',
+            title: siteTexts.get('game.stores'),
             externalLinks: game.stores,
             onLinkOpened: (externalLink) {
               viewModel.openStore(externalLink);
@@ -61,7 +64,7 @@ class GamePageState extends State<GamePage> {
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
-            title: 'Vídeos',
+            title: siteTexts.get('game.videos'),
             externalLinks: game.videos,
             onLinkOpened: (externalLink) {
               viewModel.openStore(externalLink);
@@ -69,7 +72,7 @@ class GamePageState extends State<GamePage> {
           ),
           const SizedBox(height: 20),
           PageSection(
-            title: 'Características',
+            title: siteTexts.get('game.features'),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -88,7 +91,7 @@ class GamePageState extends State<GamePage> {
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
-            title: 'Redes sociais',
+            title: siteTexts.get('game.socialMedia'),
             externalLinks: game.socialMediaLinks,
             onLinkOpened: (externalLink) {
               viewModel.openSocialMediaLink(externalLink);
@@ -96,17 +99,17 @@ class GamePageState extends State<GamePage> {
           ),
           const SizedBox(height: 20),
           TextSection(
-            title: 'Nome internacional',
+            title: siteTexts.get('game.alternativeName'),
             text: game.internationalName
           ),
           const SizedBox(height: 20),
           TextSection(
-            title: 'Gênero',
+            title: siteTexts.get('game.genre'),
             text: game.genre
           ),
           const SizedBox(height: 20),
           PageSection(
-            title: 'Prêmios',
+            title: siteTexts.get('game.awards'),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -123,17 +126,17 @@ class GamePageState extends State<GamePage> {
           ),
           const SizedBox(height: 20),
           TextSection(
-            title: 'Desenvolvido por',
+            title: siteTexts.get('game.developedBy'),
             text: game.developedBy
           ),
           const SizedBox(height: 20),
           TextSection(
-            title: 'Publicado por',
+            title: siteTexts.get('game.publishedBy'),
             text: game.publishedBy
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
-            title: 'Links adicionais',
+            title: siteTexts.get('game.additionalLinks'),
             externalLinks: game.additionalLinks,
             onLinkOpened: (externalLink) {
               viewModel.openSocialMediaLink(externalLink);

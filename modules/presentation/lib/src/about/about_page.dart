@@ -1,9 +1,11 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
 import 'package:infrastructure/infrastructure.dart';
+
 import '../common/external_links_section.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
+import '../internationalization/site_texts.dart';
 import 'about_router_impl.dart';
 
 /// The view for the about page.
@@ -24,6 +26,7 @@ class AboutPageState extends State<AboutPage> {
 
     final viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl());
     viewModel.load();
+    final siteTexts = SiteTexts.of(context);
 
     return PageDecorator(
       child: Column(
@@ -38,12 +41,12 @@ class AboutPageState extends State<AboutPage> {
           ),
           const SizedBox(height: 40),
           TextSection(
-            title: 'Sobre',
+            title: siteTexts.get('about.title'),
             text: viewModel.about.text
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
-            title: 'Redes sociais e outros links',
+            title: siteTexts.get('about.socialMediaAndOtherLinks'),
             externalLinks: viewModel.about.socialMediaLinks,
             onLinkOpened: (externalLink) {
               viewModel.openSocialMediaLink(externalLink);
@@ -51,7 +54,7 @@ class AboutPageState extends State<AboutPage> {
           ),
           const SizedBox(height: 20),
           TextSection(
-            title: 'Contato',
+            title: siteTexts.get('about.contact'),
             text: viewModel.about.email
           ),
         ]
