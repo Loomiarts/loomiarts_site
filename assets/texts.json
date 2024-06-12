@@ -1,0 +1,64 @@
+{
+    "home.game": {
+        "base": "Game",
+        "pt": "Jogo"
+    },
+    "home.about": {
+        "base": "About",
+        "pt": "Sobre"
+    },
+
+    "game.stores": {
+        "base": "Stores",
+        "pt": "Lojas"
+    },
+    "game.videos": {
+        "base": "Videos",
+        "pt": "Vídeos"
+    },
+    "game.features": {
+        "base": "Features",
+        "pt": "Características"
+    },
+    "game.socialMedia": {
+        "base": "Social media",
+        "pt": "Redes sociais"
+    },
+    "game.alternativeName": {
+        "base": "Original name",
+        "pt": "Nome internacional"
+    },
+    "game.genre": {
+        "base": "Genre",
+        "pt": "Gênero"
+    },
+    "game.awards": {
+        "base": "Awards",
+        "pt": "Prêmios"
+    },
+    "game.developedBy": {
+        "base": "Developed by",
+        "pt": "Desenvolvido por"
+    },
+    "game.publishedBy": {
+        "base": "Published by",
+        "pt": "Publicado por"
+    },
+    "game.additionalLinks": {
+        "base": "Additional links",
+        "pt": "Links adicionais"
+    },
+
+    "about.title": {
+        "base": "Sobre",
+        "pt": "About"
+    },
+    "about.socialMediaAndOtherLinks": {
+        "base": "Social media and other links",
+        "pt": "Redes sociais e outros links"
+    },
+    "about.contact": {
+        "base": "Contact",
+        "pt": "Contato"
+    }
+}
