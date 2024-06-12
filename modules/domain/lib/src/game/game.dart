@@ -7,6 +7,22 @@ class GameFeature {
 
   GameFeature(this.title, this.text);
 
+  GameFeature.fromJson(Map<String, dynamic> json) {
+    if (json case {
+      'title': String title,
+      'text': String text,
+    }) {
+      this.title = title;
+      this.text = text;
+    }
+  }
+
+  static List<GameFeature> manyFromJson(List<Map<String, dynamic>> json) {
+    return List.from(json.map((e) {
+      return GameFeature.fromJson(e);
+    }));
+  }
+
   @override
   bool operator ==(covariant GameFeature other) {
     return title == other.title && text == other.text;
@@ -58,56 +74,11 @@ class Game {
       this.posterImage = posterImage;
       this.bannerImage = bannerImage;
       this.awards = awards;
-      this.features = List.from(features.map((e) {
-        if (e case {
-          'title': String title,
-          'text': String text,
-        }) {
-          return GameFeature(title, text);
-        } else {
-          return GameFeature('', '');
-        }
-      }));
-      this.stores = List.from(stores.map((e) {
-        if (e case {
-          'name': String name,
-          'url': String url,
-        }) {
-          return ExternalLink(name, url);
-        } else {
-          return ExternalLink('', '');
-        }
-      }));
-      this.videos = List.from(videos.map((e) {
-        if (e case {
-          'name': String name,
-          'url': String url,
-        }) {
-          return ExternalLink(name, url);
-        } else {
-          return ExternalLink('', '');
-        }
-      }));
-      this.socialMediaLinks = List.from(socialMediaLinks.map((e) {
-        if (e case {
-          'name': String name,
-          'url': String url,
-        }) {
-          return ExternalLink(name, url);
-        } else {
-          return ExternalLink('', '');
-        }
-      }));
-      this.additionalLinks = List.from(additionalLinks.map((e) {
-        if (e case {
-          'name': String name,
-          'url': String url,
-        }) {
-          return ExternalLink(name, url);
-        } else {
-          return ExternalLink('', '');
-        }
-      }));
+      this.features = GameFeature.manyFromJson(features as List<Map<String, dynamic>>);
+      this.stores = ExternalLink.manyFromJson(stores as List<Map<String, dynamic>>);
+      this.videos = ExternalLink.manyFromJson(videos as List<Map<String, dynamic>>);
+      this.socialMediaLinks = ExternalLink.manyFromJson(socialMediaLinks as List<Map<String, dynamic>>);
+      this.additionalLinks = ExternalLink.manyFromJson(additionalLinks as List<Map<String, dynamic>>);
     }
   }
 }

@@ -5,6 +5,22 @@ class ExternalLink {
 
   ExternalLink(this.name, this.url);
 
+  ExternalLink.fromJson(Map<String, dynamic> json) {
+    if (json case {
+      'name': String name,
+      'url': String url,
+    }) {
+      this.name = name;
+      this.url = url;
+    }
+  }
+
+  static List<ExternalLink> manyFromJson(List<Map<String, dynamic>> json) {
+    return List.from(json.map((e) {
+      return ExternalLink.fromJson(e);
+    }));
+  }
+
   @override
   bool operator ==(covariant ExternalLink e) {
     return name == e.name && url == e.url;
