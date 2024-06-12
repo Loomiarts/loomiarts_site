@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
 
-  group('extracts from JSON maps', () {
+  group('tests the I18nString', () {
 
     test('gets the string with toString', () {
       // given:
@@ -24,7 +24,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.fromMap(json);
+      final result = I18nString.fromJson(json);
 
       // then:
       expect(result.base, 'hello, world!');
@@ -38,7 +38,7 @@ void main() {
       Map<String, dynamic> json = {};
 
       // when:
-      final result = I18nString.fromMap(json);
+      final result = I18nString.fromJson(json);
 
       // then:
       expect(result.base, '');
@@ -53,7 +53,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.fromMap(json);
+      final result = I18nString.fromJson(json);
 
       // then:
       expect(result.base, '');
@@ -71,7 +71,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.fromMap(json);
+      final result = I18nString.fromJson(json);
 
       // then:
       expect(result.base, '');
@@ -91,7 +91,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.manyFromMap(json);
+      final result = I18nString.manyFromJson(json);
 
       // then:
       expect(result.length, 2);
@@ -110,7 +110,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.manyFromMap(json);
+      final result = I18nString.manyFromJson(json);
 
       // then:
       expect(result.length, 1);

@@ -8,22 +8,22 @@ class I18nString {
   I18nString.base(this.base) : localizedStrings = {};
 
   /// Initializes from a Json map.
-  I18nString.fromMap(Map<String, dynamic> map) : localizedStrings = {} {
-    base = (map['base'] is String) ? map['base'] : '';
-    for (var key in map.keys) {
-      if (key != 'base' && map[key] is String) {
-        localizedStrings[key] = map[key];
+  I18nString.fromJson(Map<String, dynamic> json) : localizedStrings = {} {
+    base = (json['base'] is String) ? json['base'] : '';
+    for (var key in json.keys) {
+      if (key != 'base' && json[key] is String) {
+        localizedStrings[key] = json[key];
       }
     }
   }
 
   /// Returns a map with many pairs of key/I18nString, usually used to load a Json file with many
   /// localized string entries.
-  static Map<String, I18nString> manyFromMap(Map<String, dynamic> map) {
+  static Map<String, I18nString> manyFromJson(Map<String, dynamic> json) {
     Map<String, I18nString> result = {};
-    for (var key in map.keys) {
-      if (map[key] is Map<String, dynamic>) {
-        result[key] = I18nString.fromMap(map[key]);
+    for (var key in json.keys) {
+      if (json[key] is Map<String, dynamic>) {
+        result[key] = I18nString.fromJson(json[key]);
       }
     }
     return result;
