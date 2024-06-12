@@ -1,5 +1,5 @@
 import 'about.dart';
 
 abstract interface class AboutRepository {
-  About getAbout();
+  Future<About> getAbout();
 }

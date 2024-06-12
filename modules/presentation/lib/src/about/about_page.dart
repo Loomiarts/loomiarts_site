@@ -21,44 +21,65 @@ class AboutPage extends StatefulWidget {
 
 /// The view state for the about page.
 class AboutPageState extends State<AboutPage> {
+
+  Future? _loading;
+  AboutViewModel? _viewModel;
+
+  @override
+  void initState() {
+    super.initState();
+    _viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl());
+    _loading = _viewModel?.load();
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    final viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl());
-    viewModel.load();
     final siteTexts = SiteTexts.of(context);
 
-    return PageDecorator(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 100,
-            child: Image.asset(
-              'assets/loomiarts_logo_transparent.png',
-              alignment: Alignment.centerLeft,
+    return FutureBuilder(
+      future: _loading,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator()
             )
-          ),
-          const SizedBox(height: 40),
-          TextSection(
-            title: siteTexts.get('about.title'),
-            text: viewModel.about.text
-          ),
-          const SizedBox(height: 20),
-          ExternalLinksSection(
-            title: siteTexts.get('about.socialMediaAndOtherLinks'),
-            externalLinks: viewModel.about.socialMediaLinks,
-            onLinkOpened: (externalLink) {
-              viewModel.openSocialMediaLink(externalLink);
-            }
-          ),
-          const SizedBox(height: 20),
-          TextSection(
-            title: siteTexts.get('about.contact'),
-            text: viewModel.about.email
-          ),
-        ]
-      ),
+          );
+        } else {
+          return PageDecorator(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 100,
+                  child: Image.asset(
+                    'assets/loomiarts_logo_transparent.png',
+                    alignment: Alignment.centerLeft,
+                  )
+                ),
+                const SizedBox(height: 40),
+                TextSection(
+                  title: siteTexts.get('about.title'),
+                  text: _viewModel!.about.text
+                ),
+                const SizedBox(height: 20),
+                ExternalLinksSection(
+                  title: siteTexts.get('about.socialMediaAndOtherLinks'),
+                  externalLinks: _viewModel!.about.socialMediaLinks,
+                  onLinkOpened: (externalLink) {
+                    _viewModel!.openSocialMediaLink(externalLink);
+                  }
+                ),
+                const SizedBox(height: 20),
+                TextSection(
+                  title: siteTexts.get('about.contact'),
+                  text: _viewModel!.about.email
+                ),
+              ]
+            ),
+          );
+        }
+      }
     );
   }
 }

@@ -1,20 +1,32 @@
-import 'package:domain/domain.dart';
+import 'dart:convert';
 
-/// Implementation for the about repository.
+import 'package:domain/domain.dart';
+import 'package:flutter/services.dart';
+
+/// Implementation of the about repository.
 class AboutRepositoryImpl implements AboutRepository {
 
   @override
-  About getAbout() {
-    return About()
-      ..text = '''
-Olá. Meu nome é Márcio Rosa e eu sou um desenvolvedor de jogos. Loomiarts é a versão estúdio de mim mesmo, digamos assim. Não é uma empresa com uma estrutura de fato: não tem pessoal, estrutura física ou coisas do tipo e nunca terá - não tenho “mindset” (como dizem) para negócios ou sobre como gerenciar uma companhia.
-
-Tampouco me considero, no entanto, um desenvolvedor “solo”: embora tenha começado sozinho a concepção do jogo Esquadrão 51 Contra os Discos Voadores, lá nos idos de 2016, sempre foi a intenção evoluir para um projeto colaborativo. E foi assim que, com o passar dos anos, colaboradores como a KF Studios, a FornoFX e a Fehorama Filmes foram se unindo ao projeto para dar forma àquilo que viria a ser lançado em 2022. E é dessa forma que pretendo que futuras produções venham também a acontecer.'''
-      ..email = 'contato@loomiarts.com'
-      ..socialMediaLinks = [
-        ExternalLink('Twitter / X', 'https://twitter.com/loomiarts'),
-        ExternalLink('YouTube', 'https://www.youtube.com/channel/UCSTsJXCSFYo009D0YAtkqSQ'),
-        ExternalLink('GitHub', 'https://github.com/Loomiarts'),
-      ];
+  Future<About> getAbout() async {
+    final jsonString = await rootBundle.loadString('assets/about.json');
+    final json = jsonDecode(jsonString) as Map<String, dynamic>;
+    final about = About();
+    if (json case {
+      'text': String text,
+      'email': String email,
+      'socialMediaLinks': List socialMediaLinks
+    }) {
+      about.text = text;
+      about.email = email;
+      for (var link in socialMediaLinks) {
+        if (link case {
+          'name': String name,
+          'url': String url,
+        }) {
+          about.socialMediaLinks.add(ExternalLink(name, url));
+        }
+      }
+    }
+    return about;
   }
 }

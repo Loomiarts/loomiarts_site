@@ -18,7 +18,7 @@ void main() {
       final about = About()
         ..text = "Some text."
         ..email = "contact@loomiarts.com";
-      when(aboutRepository.getAbout()).thenReturn(about);
+      when(aboutRepository.getAbout()).thenReturn(Future.sync(() => about));
       
       // when:
       viewModel.load();

@@ -3,6 +3,8 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'dart:async' as _i4;
+
 import 'package:application/src/about/about_router.dart' as _i3;
 import 'package:domain/domain.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
@@ -66,17 +68,17 @@ class MockAboutRepository extends _i1.Mock implements _i2.AboutRepository {
   }
 
   @override
-  _i2.About getAbout() => (super.noSuchMethod(
+  _i4.Future<_i2.About> getAbout() => (super.noSuchMethod(
         Invocation.method(
           #getAbout,
           [],
         ),
-        returnValue: _FakeAbout_0(
+        returnValue: _i4.Future<_i2.About>.value(_FakeAbout_0(
           this,
           Invocation.method(
             #getAbout,
             [],
           ),
-        ),
-      ) as _i2.About);
+        )),
+      ) as _i4.Future<_i2.About>);
 }

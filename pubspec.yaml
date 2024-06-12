@@ -60,3 +60,4 @@ flutter:
     - assets/loomiarts_logo.png
     - assets/loomiarts_logo_transparent.png
     - assets/texts.json
+    - assets/about.json

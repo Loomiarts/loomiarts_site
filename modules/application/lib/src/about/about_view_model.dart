@@ -9,8 +9,8 @@ class AboutViewModel {
 
   AboutViewModel(this._router, this._aboutRepository);
 
-  void load() {
-    about = _aboutRepository.getAbout();
+  Future load() async {
+    about = await _aboutRepository.getAbout();
   }
 
   void navigateBack() {
