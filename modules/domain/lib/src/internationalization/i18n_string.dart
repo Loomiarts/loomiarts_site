@@ -37,4 +37,9 @@ class I18nString {
       return base;
     }
   }
+
+  @override
+  bool operator ==(covariant I18nString other) {
+    return base == other.base && localizedStrings == other.localizedStrings;
+  }
 }

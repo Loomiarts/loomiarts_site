@@ -1,19 +1,20 @@
 import '../common/external_link.dart';
+import '../internationalization/i18n_string.dart';
 
 /// Describes a feature of a game.
 class GameFeature {
-  String title = "";
-  String text = "";
+  I18nString title = I18nString.base('');
+  I18nString text = I18nString.base('');
 
   GameFeature(this.title, this.text);
 
   GameFeature.fromJson(Map json) {
     if (json case {
-      'title': String title,
-      'text': String text,
+      'title': Map<String, dynamic> title,
+      'text': Map<String, dynamic> text,
     }) {
-      this.title = title;
-      this.text = text;
+      this.title = I18nString.fromJson(title);
+      this.text = I18nString.fromJson(text);
     }
   }
 
@@ -27,19 +28,24 @@ class GameFeature {
   bool operator ==(covariant GameFeature other) {
     return title == other.title && text == other.text;
   }
+
+  @override
+  String toString() {
+    return '${title.toString()} - ${text.toString()}';
+  }
 }
 
 /// Model containing data for a single game.
 class Game {
-  String name = '';
-  String shortDescription = '';
-  String posterImage = '';
-  String bannerImage = '';
-  String developedBy = '';
-  String publishedBy = '';
-  String genre = '';
-  String internationalName = '';
-  List<String> awards = [];
+  I18nString name = I18nString.base('');
+  I18nString shortDescription = I18nString.base('');
+  I18nString posterImage = I18nString.base('');
+  I18nString bannerImage = I18nString.base('');
+  I18nString developedBy = I18nString.base('');
+  I18nString publishedBy = I18nString.base('');
+  I18nString genre = I18nString.base('');
+  I18nString alternativeName = I18nString.base('');
+  List<I18nString> awards = [];
   List<GameFeature> features = [];
   List<ExternalLink> stores = [];
   List<ExternalLink> socialMediaLinks = [];
@@ -50,30 +56,30 @@ class Game {
 
   Game.fromJson(Map json) {
     if (json case {
-      'name': String name,
-      'developedBy': String developedBy,
-      'publishedBy': String publishedBy,
-      'genre': String genre,
-      'shortDescription': String shortDescription,
-      'internationalName': String internationalName,
+      'name': Map<String, dynamic> name,
+      'developedBy': Map<String, dynamic> developedBy,
+      'publishedBy': Map<String, dynamic> publishedBy,
+      'genre': Map<String, dynamic> genre,
+      'shortDescription': Map<String, dynamic> shortDescription,
+      'alternativeName': Map<String, dynamic> alternativeName,
       'awards': List awards,
       'features': List features,
       'stores': List stores,
       'videos': List videos,
       'socialMediaLinks': List socialMediaLinks,
       'additionalLinks': List additionalLinks,
-      'posterImage': String posterImage,
-      'bannerImage': String bannerImage,
+      'posterImage': Map<String, dynamic> posterImage,
+      'bannerImage': Map<String, dynamic> bannerImage,
     }) {
-      this.name = name;
-      this.developedBy = developedBy;
-      this.publishedBy = publishedBy;
-      this.genre = genre;
-      this.shortDescription = shortDescription;
-      this.internationalName = internationalName;
-      this.posterImage = posterImage;
-      this.bannerImage = bannerImage;
-      this.awards = List<String>.from(awards.map((e) => e as String));
+      this.name = I18nString.fromJson(name);
+      this.developedBy = I18nString.fromJson(developedBy);
+      this.publishedBy = I18nString.fromJson(publishedBy);
+      this.genre = I18nString.fromJson(genre);
+      this.shortDescription = I18nString.fromJson(shortDescription);
+      this.alternativeName = I18nString.fromJson(alternativeName);
+      this.posterImage = I18nString.fromJson(posterImage);
+      this.bannerImage = I18nString.fromJson(bannerImage);
+      this.awards = List<I18nString>.from(awards.map((e) => I18nString.fromJson(e)));
       this.features = GameFeature.manyFromJson(features);
       this.stores = ExternalLink.manyFromJson(stores);
       this.videos = ExternalLink.manyFromJson(videos);

@@ -1,32 +1,82 @@
 [
     {
-        "name": "Esquadrão 51 Contra os Discos Voadores",
-        "developedBy": "Loomiarts e Fehorama Filmes",
-        "publishedBy": "WhisperGames e Assemble Entertainment",
-        "genre": "Shoot'em up",
-        "shortDescription": "Esquadrão 51 Contra dos Discos Voadores é um shoot'em up para PC e consoles com estética de filmes de ficção científica dos anos 50. Desenvolvido por Loomiarts e Fehorama Filmes e publicado por WhisperGames e Assemble Entertainment. Já disponível para PC (Steam), Nintendo Switch, Xbox e PlayStation.",
-        "internationalName": "Squad 51 vs. the Flying Saucers",
+        "name": {
+            "base": "Squad 51 vs. the Flying Saucers",
+            "pt": "Esquadrão 51 Contra os Discos Voadores"
+        },
+        "developedBy": {
+            "base": "Loomiarts and Fehorama Filmes",
+            "pt": "Loomiarts e Fehorama Filmes"
+        },
+        "publishedBy": {
+            "base": "WhisperGames and Assemble Entertainment",
+            "pt": "WhisperGames e Assemble Entertainment"
+        },
+        "genre": {
+            "base": "Shoot'em up"
+        },
+        "shortDescription": {
+            "base": "Squad 51 vs. the Flying Saucers is a shoot'em up for PC and consoles with aesthetics directly inspired by sci-fi movies from the fifties.\n\nDeveloped by Loomiarts and Fehorama Filmes and published by WhisperGames and Assemble Entertainment.\n\nAlready available on Steam, Nintendo Switch, Xbox and PlayStation.",
+            "pt": "Esquadrão 51 Contra dos Discos Voadores é um shoot'em up para PC e consoles com estética de filmes de ficção científica dos anos 50. Desenvolvido por Loomiarts e Fehorama Filmes e publicado por WhisperGames e Assemble Entertainment. Já disponível para PC (Steam), Nintendo Switch, Xbox e PlayStation."
+        },
+        "alternativeName": {
+            "base": "Esquadrão 51 Contra os Discos Voadores",
+            "pt": "Squad 51 vs. the Flying Saucers"
+        },
         "awards": [
-            "BIG Festival 2017: Melhor Arte (finalista), Melhor Jogo Brasileiro (finalista)",
-            "Festival de Jogos do SBGames 2017: Melhor Visual (vencedor), Melhor Áudio (finalista), Melhor Tecnologia (finalista)",
-            "Epic MegaGrants (contemplado)"
+            {
+                "base": "BIG Festival 2017: Best Art (nominated), Best Brazillian Game (nominated)",
+                "pt": "BIG Festival 2017: Melhor Arte (finalista), Melhor Jogo Brasileiro (finalista)"
+            },
+            {
+                "base": "SBGames 2017 Games Festival: Best Art (Winner), Best Sound (nominated), Best Technology (nominated)",
+                "pt": "Festival de Jogos do SBGames 2017: Melhor Visual (vencedor), Melhor Áudio (finalista), Melhor Tecnologia (finalista)"
+            },
+            {
+                "base": "Epic MegaGrants",
+                "pt": "Epic MegaGrants (contemplado)"
+            }
         ],
         "features": [
             {
-                "title": "Gameplay clássico",
-                "text": "Esquadrão 51 Contra os Discos Voadores é um SHOOT'EM UP! com quatro aeronaves diferentes para jogar e variadas armas especiais."
+                "title": {
+                    "base": "Classic gameplay",
+                    "pt": "Gameplay clássico"
+                },
+                "text": {
+                    "base": "Squad 51 vs. the Flying Saucers is a SHOOT 'EM UP! game with four different aircrafts to play and set up with special weapons.",
+                    "pt": "Esquadrão 51 Contra os Discos Voadores é um SHOOT'EM UP! com quatro aeronaves diferentes para jogar e variadas armas especiais."
+                }
             },
             {
-                "title": "Experiência cinemática",
-                "text": "Gloriosa estética em preto-e-branco, cutscenes em live-action e vozes dubladas contarão a história da batalha entre o Esquadrão 51 e a supremacia alienígena do Diretor Zarog."
+                "title": {
+                    "base": "Cinematic experience",
+                    "pt": "Experiência cinemática"
+                },
+                "text": {
+                    "base": "Glorious black-and-white aesthetics, live-action FMV sequences and dubbed voices will tell the story of the battle between the Squadron 51 and Director Zarog’s alien supremacy.",
+                    "pt": "Gloriosa estética em preto-e-branco, cutscenes em live-action e vozes dubladas contarão a história da batalha entre o Esquadrão 51 e a supremacia alienígena do Diretor Zarog."
+                }
             },
             {
-                "title": "11 fases",
-                "text": "Combata naves inimigas e chefões em diferentes ambientes - montanhas nevadas, florestas, paisagens urbanas, entre outros."
+                "title": {
+                    "base": "11 levels",
+                    "pt": "11 fases"
+                },
+                "text": {
+                    "base": "Fight against enemy ships and bosses in many different environments - snowy mountains, forests, cityscapes and many others.",
+                    "pt": "Combata naves inimigas e chefões em diferentes ambientes - montanhas nevadas, florestas, paisagens urbanas, entre outros."
+                }
             },
             {
-                "title": "Multijogador",
-                "text": "Se sentindo sozinho contra alienígenas? Convide um amigo! Um segundo jogador pode entrar em qualquer nível quando quiser. Junte pontos com seu amigo e desbloqueiem juntos nova armas especiais e upgrades."
+                "title": {
+                    "base": "Multiplayer",
+                    "pt": "Multijogador"
+                },
+                "text": {
+                    "base": "Feeling lonely against Aliens? Invite a friend! A second player can enter a level any time. Earn points with your friend and unlock together new special weapons and upgrades.",
+                    "pt": "Se sentindo sozinho contra alienígenas? Convide um amigo! Um segundo jogador pode entrar em qualquer nível quando quiser. Junte pontos com seu amigo e desbloqueiem juntos nova armas especiais e upgrades."
+                }
             }
         ],
         "stores": [
@@ -73,7 +123,13 @@
                 "url": "http://www.whisperinteractive.com/"
             }
       ],
-      "posterImage": "assets/squad51/poster.png",
-      "bannerImage": "assets/squad51/banner.png"
+      "posterImage": {
+        "base": "assets/squad51/poster_en.png",
+        "pt": "assets/squad51/poster.png"
+      },
+      "bannerImage": {
+        "base": "assets/squad51/banner_en.png",
+        "pt": "assets/squad51/banner.png"
+      }
     }
 ]

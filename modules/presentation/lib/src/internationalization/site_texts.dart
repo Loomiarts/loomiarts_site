@@ -1,3 +1,4 @@
+import 'package:application/application.dart';
 import 'package:flutter/widgets.dart';
 import 'package:infrastructure/infrastructure.dart';
 
@@ -20,6 +21,10 @@ class SiteTexts {
 
   String get(String key) {
     return (I18nRepositoryImpl().getAll())[key]?.toString(languageCode: _locale.languageCode) ?? '';
+  }
+
+  String translate(I18nString i18nString) {
+    return i18nString.toString(languageCode: _locale.languageCode);
   }
 }
 

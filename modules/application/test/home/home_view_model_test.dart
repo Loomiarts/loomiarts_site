@@ -16,11 +16,11 @@ void main() {
     test('loads the view model data', () async {
       // given:
       final game1 = Game()
-        ..name = 'Marvelous Game'
-        ..developedBy = 'Loomiarts';
+        ..name = I18nString.base('Marvelous Game')
+        ..developedBy = I18nString.base('Loomiarts');
       final game2 = Game()
-        ..name = 'Another Marvelous Game'
-        ..developedBy = 'Loomiarts and Konami';
+        ..name = I18nString.base('Another Marvelous Game')
+        ..developedBy = I18nString.base('Loomiarts and Konami');
       when(gameRepository.getGames()).thenAnswer((_) {
         return Future.sync(() => [game1, game2]);
       });
@@ -30,17 +30,17 @@ void main() {
 
       // then:
       expect(viewModel.games.length, 2);
-      expect(viewModel.games[0].name, 'Marvelous Game');
-      expect(viewModel.games[0].developedBy, 'Loomiarts');
-      expect(viewModel.games[1].name, 'Another Marvelous Game');
-      expect(viewModel.games[1].developedBy, 'Loomiarts and Konami');
+      expect(viewModel.games[0].name.toString(), 'Marvelous Game');
+      expect(viewModel.games[0].developedBy.toString(), 'Loomiarts');
+      expect(viewModel.games[1].name.toString(), 'Another Marvelous Game');
+      expect(viewModel.games[1].developedBy.toString(), 'Loomiarts and Konami');
     });
 
     test('navigates to the selected game', () {
       // given:
       final game = Game()
-        ..name = 'Marvelous Game'
-        ..developedBy = 'Loomiarts';
+        ..name = I18nString.base('Marvelous Game')
+        ..developedBy = I18nString.base('Loomiarts');
       
       // when:
       viewModel.selectGame(game);

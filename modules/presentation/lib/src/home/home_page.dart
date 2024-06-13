@@ -55,7 +55,7 @@ class HomePageState extends State<HomePage> {
                     children: [
                       for (var game in _viewModel!.games) HomeTile(
                         title: siteTexts.get("home.game"),
-                        imageAsset: game.posterImage,
+                        imageAsset: siteTexts.translate(game.posterImage),
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => GamePage(game: game))

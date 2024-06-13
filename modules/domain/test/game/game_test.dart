@@ -8,14 +8,14 @@ void main() {
     test('extracts from JSON', () {
       // given:
       final json = {
-        'name': 'The Game',
-        'developedBy': 'The Game Maker',
-        'publishedBy': 'The Game Publisher',
-        'genre': 'Action',
-        'shortDescription': 'This is a game.',
-        'internationalName': 'Le Game',
-        'posterImage': 'poster.png',
-        'bannerImage': 'banner.png',
+        'name': {'base': 'The Game'},
+        'developedBy': {'base': 'The Game Maker'},
+        'publishedBy': {'base': 'The Game Publisher'},
+        'genre': {'base': 'Action'},
+        'shortDescription': {'base': 'This is a game.'},
+        'alternativeName': {'base': 'Le Game'},
+        'posterImage': {'base': 'poster.png'},
+        'bannerImage': {'base': 'banner.png'},
         'socialMediaLinks': [
           {
               'name': 'Twitter',
@@ -44,15 +44,15 @@ void main() {
               'url': 'www.site.com'
           }
         ],
-        'awards': ["Oscar", "BIG Festival"],
+        'awards': [{'base': 'Oscar'}, {'base': 'BIG Festival'}],
         'features': [
           {
-              'title': 'This is a game',
-              'text': 'True story!'
+              'title': {'base': 'This is a game'},
+              'text': {'base': 'True story!'}
           },
           {
-              'title': 'Gameplay',
-              'text': 'Play a game!'
+              'title': {'base': 'Gameplay'},
+              'text': {'base': 'Play a game!'}
           }
         ],
       };
@@ -61,14 +61,14 @@ void main() {
       final game = Game.fromJson(json);
 
       // then:
-      expect(game.name, 'The Game');
-      expect(game.developedBy, 'The Game Maker');
-      expect(game.publishedBy, 'The Game Publisher');
-      expect(game.genre, 'Action');
-      expect(game.shortDescription, 'This is a game.');
-      expect(game.internationalName, 'Le Game');
-      expect(game.posterImage, 'poster.png');
-      expect(game.bannerImage, 'banner.png');
+      expect(game.name.toString(), 'The Game');
+      expect(game.developedBy.toString(), 'The Game Maker');
+      expect(game.publishedBy.toString(), 'The Game Publisher');
+      expect(game.genre.toString(), 'Action');
+      expect(game.shortDescription.toString(), 'This is a game.');
+      expect(game.alternativeName.toString(), 'Le Game');
+      expect(game.posterImage.toString(), 'poster.png');
+      expect(game.bannerImage.toString(), 'banner.png');
       expect(game.socialMediaLinks, [
         ExternalLink('Twitter', 'https://twitter.com/thegame'),
         ExternalLink('Facebook', 'https://fb.com/thegame'),
@@ -83,45 +83,45 @@ void main() {
         ExternalLink('Read more', 'www.site.com'),
       ]);
       expect(game.features, [
-        GameFeature('This is a game', 'True story!'),
-        GameFeature('Gameplay', 'Play a game!'),
+        GameFeature(I18nString.base('This is a game'), I18nString.base('True story!')),
+        GameFeature(I18nString.base('Gameplay'), I18nString.base('Play a game!')),
       ]);
-      expect(game.awards, ['Oscar', 'BIG Festival']);
+      expect(game.awards, [I18nString.base('Oscar'), I18nString.base('BIG Festival')]);
     });
 
     test('extracts many from JSON', () {
       // given:
       final json = [
         {
-          'name': 'The Game',
-          'developedBy': 'The Game Maker',
-          'publishedBy': 'The Game Publisher',
-          'genre': 'Action',
-          'shortDescription': 'This is a game.',
-          'internationalName': 'Le Game',
-          'posterImage': 'poster.png',
-          'bannerImage': 'banner.png',
+          'name': {'base': 'The Game'},
+          'developedBy': {'base': 'The Game Maker'},
+          'publishedBy': {'base': 'The Game Publisher'},
+          'genre': {'base': 'Action'},
+          'shortDescription': {'base': 'This is a game.'},
+          'alternativeName': {'base': 'Le Game'},
+          'posterImage': {'base': 'poster.png'},
+          'bannerImage': {'base': 'banner.png'},
           'socialMediaLinks': <Map<String, dynamic>>[],
           'stores': <Map<String, dynamic>>[],
           'videos': <Map<String, dynamic>>[],
           'additionalLinks': <Map<String, dynamic>>[],
-          'awards': ["Oscar", "BIG Festival"],
+          'awards': [{'base': 'Oscar'}, {'base': 'BIG Festival'}],
           'features': <Map<String, dynamic>>[],
         },
         {
-          'name': 'The Game 2',
-          'developedBy': 'The Game Maker',
-          'publishedBy': 'The Game Publisher',
-          'genre': 'Action',
-          'shortDescription': 'This is a game sequel.',
-          'internationalName': 'Le Game 2',
-          'posterImage': 'poster2.png',
-          'bannerImage': 'banner2.png',
+          'name': {'base': 'The Game 2'},
+          'developedBy': {'base': 'The Game Maker'},
+          'publishedBy': {'base': 'The Game Publisher'},
+          'genre': {'base': 'Action'},
+          'shortDescription': {'base': 'This is a game sequel.'},
+          'alternativeName': {'base': 'Le Game 2'},
+          'posterImage': {'base': 'poster2.png'},
+          'bannerImage': {'base': 'banner2.png'},
           'socialMediaLinks': <Map<String, dynamic>>[],
           'stores': <Map<String, dynamic>>[],
           'videos': <Map<String, dynamic>>[],
           'additionalLinks': <Map<String, dynamic>>[],
-          'awards': ["Oscar", "BIG Festival"],
+          'awards': [{'base': 'Oscar'}, {'base': 'BIG Festival'}],
           'features': <Map<String, dynamic>>[],
         }
       ];
@@ -131,8 +131,8 @@ void main() {
 
       // then:
       expect(games.length, 2);
-      expect(games[0].name, 'The Game');
-      expect(games[1].name, 'The Game 2');
+      expect(games[0].name.toString(), 'The Game');
+      expect(games[1].name.toString(), 'The Game 2');
     });
 
   });

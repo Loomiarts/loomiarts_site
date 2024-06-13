@@ -47,12 +47,12 @@ class GamePageState extends State<GamePage> {
           PhysicalModel(
             color: Colors.white,
             elevation: 20,
-            child: Image.asset(game.bannerImage)
+            child: Image.asset(siteTexts.translate(game.bannerImage))
           ),
           const SizedBox(height: 40),
           TextSection(
-            title: game.name,
-            text: game.shortDescription
+            title: siteTexts.translate(game.name),
+            text: siteTexts.translate(game.shortDescription)
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
@@ -81,9 +81,9 @@ class GamePageState extends State<GamePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 15),
-                      Text(feature.title, style: featuresTitleStyle),
+                      Text(siteTexts.translate(feature.title), style: featuresTitleStyle),
                       const SizedBox(height: 10),
-                      Text(feature.text, style: featuresTextStyle),
+                      Text(siteTexts.translate(feature.text), style: featuresTextStyle),
                     ],
                   )
               ],
@@ -100,12 +100,12 @@ class GamePageState extends State<GamePage> {
           const SizedBox(height: 20),
           TextSection(
             title: siteTexts.get('game.alternativeName'),
-            text: game.internationalName
+            text: siteTexts.translate(game.alternativeName)
           ),
           const SizedBox(height: 20),
           TextSection(
             title: siteTexts.get('game.genre'),
-            text: game.genre
+            text: siteTexts.translate(game.genre)
           ),
           const SizedBox(height: 20),
           PageSection(
@@ -127,12 +127,12 @@ class GamePageState extends State<GamePage> {
           const SizedBox(height: 20),
           TextSection(
             title: siteTexts.get('game.developedBy'),
-            text: game.developedBy
+            text: siteTexts.translate(game.developedBy)
           ),
           const SizedBox(height: 20),
           TextSection(
             title: siteTexts.get('game.publishedBy'),
-            text: game.publishedBy
+            text: siteTexts.translate(game.publishedBy)
           ),
           const SizedBox(height: 20),
           ExternalLinksSection(
