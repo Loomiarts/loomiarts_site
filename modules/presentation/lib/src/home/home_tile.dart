@@ -17,8 +17,8 @@ class HomeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final titleStyle = theme.textTheme.displaySmall!.copyWith(
-      color: theme.colorScheme.onPrimary
+    final titleStyle = theme.textTheme.headlineMedium!.copyWith(
+      color: Colors.white
     );
 
     return Padding(
@@ -53,7 +53,7 @@ class HomeTile extends StatelessWidget {
                     verticalDirection: VerticalDirection.up,
                     children: [
                       Container(
-                        color: theme.colorScheme.primary.withOpacity(0.8),
+                        color: const Color(0xFFA20033).withOpacity(0.8),
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
                           child: Text(title, style: titleStyle,)

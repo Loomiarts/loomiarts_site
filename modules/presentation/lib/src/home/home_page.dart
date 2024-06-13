@@ -47,6 +47,7 @@ class HomePageState extends State<HomePage> {
           return Scaffold(
             body: Center(
               child: ListView(
+                padding: const EdgeInsets.all(40.0),
                 shrinkWrap: true,
                 children: [
                   Wrap(
