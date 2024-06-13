@@ -89,5 +89,51 @@ void main() {
       expect(game.awards, ['Oscar', 'BIG Festival']);
     });
 
+    test('extracts many from JSON', () {
+      // given:
+      final json = [
+        {
+          'name': 'The Game',
+          'developedBy': 'The Game Maker',
+          'publishedBy': 'The Game Publisher',
+          'genre': 'Action',
+          'shortDescription': 'This is a game.',
+          'internationalName': 'Le Game',
+          'posterImage': 'poster.png',
+          'bannerImage': 'banner.png',
+          'socialMediaLinks': <Map<String, dynamic>>[],
+          'stores': <Map<String, dynamic>>[],
+          'videos': <Map<String, dynamic>>[],
+          'additionalLinks': <Map<String, dynamic>>[],
+          'awards': ["Oscar", "BIG Festival"],
+          'features': <Map<String, dynamic>>[],
+        },
+        {
+          'name': 'The Game 2',
+          'developedBy': 'The Game Maker',
+          'publishedBy': 'The Game Publisher',
+          'genre': 'Action',
+          'shortDescription': 'This is a game sequel.',
+          'internationalName': 'Le Game 2',
+          'posterImage': 'poster2.png',
+          'bannerImage': 'banner2.png',
+          'socialMediaLinks': <Map<String, dynamic>>[],
+          'stores': <Map<String, dynamic>>[],
+          'videos': <Map<String, dynamic>>[],
+          'additionalLinks': <Map<String, dynamic>>[],
+          'awards': ["Oscar", "BIG Festival"],
+          'features': <Map<String, dynamic>>[],
+        }
+      ];
+      
+      // when:
+      final games = Game.manyFromJson(json);
+
+      // then:
+      expect(games.length, 2);
+      expect(games[0].name, 'The Game');
+      expect(games[1].name, 'The Game 2');
+    });
+
   });
 }

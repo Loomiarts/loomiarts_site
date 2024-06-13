@@ -9,8 +9,8 @@ class HomeViewModel {
 
   HomeViewModel(this._router, this._gameRepository);
 
-  void load() {
-    games = _gameRepository.getGames();
+  Future load() async {
+    games = await _gameRepository.getGames();
   }
 
   void selectGame(Game game) {

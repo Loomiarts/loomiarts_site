@@ -5,7 +5,7 @@ class ExternalLink {
 
   ExternalLink(this.name, this.url);
 
-  ExternalLink.fromJson(Map<String, dynamic> json) {
+  ExternalLink.fromJson(Map json) {
     if (json case {
       'name': String name,
       'url': String url,
@@ -15,7 +15,7 @@ class ExternalLink {
     }
   }
 
-  static List<ExternalLink> manyFromJson(List<Map<String, dynamic>> json) {
+  static List<ExternalLink> manyFromJson(List json) {
     return List.from(json.map((e) {
       return ExternalLink.fromJson(e);
     }));

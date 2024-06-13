@@ -13,7 +13,7 @@ void main() {
     final gameRepository = MockGameRepository();
     final viewModel = HomeViewModel(router, gameRepository);
 
-    test('loads the view model data', () {
+    test('loads the view model data', () async {
       // given:
       final game1 = Game()
         ..name = 'Marvelous Game'
@@ -21,10 +21,12 @@ void main() {
       final game2 = Game()
         ..name = 'Another Marvelous Game'
         ..developedBy = 'Loomiarts and Konami';
-      when(gameRepository.getGames()).thenReturn([game1, game2]);
+      when(gameRepository.getGames()).thenAnswer((_) {
+        return Future.sync(() => [game1, game2]);
+      });
       
       // when:
-      viewModel.load();
+      await viewModel.load();
 
       // then:
       expect(viewModel.games.length, 2);

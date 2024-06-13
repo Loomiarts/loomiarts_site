@@ -3,6 +3,8 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'dart:async' as _i4;
+
 import 'package:application/src/home/home_router.dart' as _i2;
 import 'package:domain/domain.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
@@ -56,11 +58,11 @@ class MockGameRepository extends _i1.Mock implements _i3.GameRepository {
   }
 
   @override
-  List<_i3.Game> getGames() => (super.noSuchMethod(
+  _i4.Future<List<_i3.Game>> getGames() => (super.noSuchMethod(
         Invocation.method(
           #getGames,
           [],
         ),
-        returnValue: <_i3.Game>[],
-      ) as List<_i3.Game>);
+        returnValue: _i4.Future<List<_i3.Game>>.value(<_i3.Game>[]),
+      ) as _i4.Future<List<_i3.Game>>);
 }

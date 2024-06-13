@@ -7,7 +7,7 @@ class GameFeature {
 
   GameFeature(this.title, this.text);
 
-  GameFeature.fromJson(Map<String, dynamic> json) {
+  GameFeature.fromJson(Map json) {
     if (json case {
       'title': String title,
       'text': String text,
@@ -17,7 +17,7 @@ class GameFeature {
     }
   }
 
-  static List<GameFeature> manyFromJson(List<Map<String, dynamic>> json) {
+  static List<GameFeature> manyFromJson(List json) {
     return List.from(json.map((e) {
       return GameFeature.fromJson(e);
     }));
@@ -48,7 +48,7 @@ class Game {
 
   Game();
 
-  Game.fromJson(Map<String, dynamic> json) {
+  Game.fromJson(Map json) {
     if (json case {
       'name': String name,
       'developedBy': String developedBy,
@@ -56,7 +56,7 @@ class Game {
       'genre': String genre,
       'shortDescription': String shortDescription,
       'internationalName': String internationalName,
-      'awards': List<String> awards,
+      'awards': List awards,
       'features': List features,
       'stores': List stores,
       'videos': List videos,
@@ -73,12 +73,18 @@ class Game {
       this.internationalName = internationalName;
       this.posterImage = posterImage;
       this.bannerImage = bannerImage;
-      this.awards = awards;
-      this.features = GameFeature.manyFromJson(features as List<Map<String, dynamic>>);
-      this.stores = ExternalLink.manyFromJson(stores as List<Map<String, dynamic>>);
-      this.videos = ExternalLink.manyFromJson(videos as List<Map<String, dynamic>>);
-      this.socialMediaLinks = ExternalLink.manyFromJson(socialMediaLinks as List<Map<String, dynamic>>);
-      this.additionalLinks = ExternalLink.manyFromJson(additionalLinks as List<Map<String, dynamic>>);
+      this.awards = List<String>.from(awards.map((e) => e as String));
+      this.features = GameFeature.manyFromJson(features);
+      this.stores = ExternalLink.manyFromJson(stores);
+      this.videos = ExternalLink.manyFromJson(videos);
+      this.socialMediaLinks = ExternalLink.manyFromJson(socialMediaLinks);
+      this.additionalLinks = ExternalLink.manyFromJson(additionalLinks);
     }
+  }
+
+  static List<Game> manyFromJson(List json) {
+    return List.from(json.map((e) {
+      return Game.fromJson(e);
+    }));
   }
 }

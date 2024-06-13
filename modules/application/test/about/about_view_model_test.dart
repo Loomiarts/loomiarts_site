@@ -13,15 +13,17 @@ void main() {
     final aboutRepository = MockAboutRepository();
     final viewModel = AboutViewModel(router, aboutRepository);
 
-    test('loads the view model data', () {
+    test('loads the view model data', () async {
       // given:
       final about = About()
         ..text = "Some text."
         ..email = "contact@loomiarts.com";
-      when(aboutRepository.getAbout()).thenReturn(Future.sync(() => about));
+      when(aboutRepository.getAbout()).thenAnswer((_) {
+        return Future.sync(() => about);
+      });
       
       // when:
-      viewModel.load();
+      await viewModel.load();
 
       // then:
       expect(viewModel.about, about);
