@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:infrastructure/infrastructure.dart';
 
 import '../common/external_links_section.dart';
+import '../common/full_screen_loader.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
 import '../internationalization/site_texts.dart';
@@ -40,11 +41,7 @@ class AboutPageState extends State<AboutPage> {
       future: _loading,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator()
-            )
-          );
+          return const FullScreenLoader();
         } else {
           return PageDecorator(
             child: Column(

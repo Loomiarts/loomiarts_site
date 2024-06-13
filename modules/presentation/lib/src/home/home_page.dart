@@ -6,6 +6,7 @@ import 'package:presentation/src/game/game_page.dart';
 
 import 'home_router_impl.dart';
 import 'home_tile.dart';
+import '../common/full_screen_loader.dart';
 import '../internationalization/site_texts.dart';
 
 /// The view for the home page.
@@ -41,11 +42,7 @@ class HomePageState extends State<HomePage> {
       future: _loading,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator()
-            )
-          );
+          return const FullScreenLoader();
         } else {
           return Scaffold(
             body: Center(
