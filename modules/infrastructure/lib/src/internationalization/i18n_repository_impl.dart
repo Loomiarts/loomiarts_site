@@ -1,11 +1,17 @@
 import 'dart:convert';
 
 import 'package:domain/domain.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:infrastructure/src/internationalization/i18n_delegate.dart';
 
 class I18nRepositoryImpl implements I18nRepository {
 
   static Map<String, LocString> _strings = {};
+
+  final BuildContext? _buildContext;
+
+  I18nRepositoryImpl([this._buildContext]);
   
   @override
   Future<void> loadStrings() async {
@@ -15,7 +21,22 @@ class I18nRepositoryImpl implements I18nRepository {
   }
 
   @override
-  Map<String, LocString> getAll() {
+  Map<String, LocString> getAllStrings() {
     return _strings;
+  }
+
+  @override
+  Language get currentLanguage {
+    if (_buildContext == null) {
+      return Language.english;
+    }
+    Locale locale = Localizations.localeOf(_buildContext);
+    return Language.fromLanguageCode(locale.languageCode) ?? Language.english;
+  }
+
+  @override
+  set currentLanguage(Language newCurrentLanguage) {
+    I18nDelegate? delegate = _buildContext?.findAncestorStateOfType<I18nDelegate>();
+    delegate?.language = newCurrentLanguage;
   }
 }

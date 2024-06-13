@@ -20,11 +20,11 @@ class SiteTexts {
   }
 
   String get(String key) {
-    return (I18nRepositoryImpl().getAll())[key]?.toString(languageCode: _locale.languageCode) ?? '';
+    return (I18nRepositoryImpl().getAllStrings())[key]?.toString(languageCode: _locale.languageCode) ?? '';
   }
 
-  String translate(LocString LocString) {
-    return LocString.toString(languageCode: _locale.languageCode);
+  String translate(LocString locString) {
+    return locString.toString(languageCode: _locale.languageCode);
   }
 }
 

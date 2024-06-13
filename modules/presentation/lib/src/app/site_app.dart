@@ -1,3 +1,5 @@
+import 'package:domain/domain.dart';
+import 'package:infrastructure/infrastructure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -11,13 +13,20 @@ class SiteApp extends StatefulWidget {
   
   @override
   State<StatefulWidget> createState() {
-    return _SiteAppState();
+    return SiteAppState();
   }
 }
 
-class _SiteAppState extends State<SiteApp> {
+class SiteAppState extends State<SiteApp> implements I18nDelegate<SiteApp> {
 
   Locale? _locale;
+
+  @override
+  set language(Language newLanguage) {
+    setState(() {
+      _locale = Locale(newLanguage.languageCode);
+    });
+  }
 
   // This widget is the root of your application.
   @override
@@ -34,10 +43,7 @@ class _SiteAppState extends State<SiteApp> {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en'),
-        Locale('pt'),
-      ],
+      supportedLocales: Language.values.map((e) => Locale(e.languageCode)),
       home: const HomePage()
     );
   }
