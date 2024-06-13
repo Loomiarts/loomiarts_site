@@ -16,8 +16,8 @@ void main() {
     test('loads the view model data', () async {
       // given:
       final about = About()
-        ..text = "Some text."
-        ..email = "contact@loomiarts.com";
+        ..text = LocString.base("Some text.")
+        ..email = LocString.base("contact@loomiarts.com");
       when(aboutRepository.getAbout()).thenAnswer((_) {
         return Future.sync(() => about);
       });

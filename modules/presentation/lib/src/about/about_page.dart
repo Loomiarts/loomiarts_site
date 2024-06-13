@@ -57,7 +57,7 @@ class AboutPageState extends State<AboutPage> {
                 const SizedBox(height: 40),
                 TextSection(
                   title: siteTexts.get('about.title'),
-                  text: _viewModel!.about.text
+                  text: siteTexts.translate(_viewModel!.about.text)
                 ),
                 const SizedBox(height: 20),
                 ExternalLinksSection(
@@ -70,7 +70,7 @@ class AboutPageState extends State<AboutPage> {
                 const SizedBox(height: 20),
                 TextSection(
                   title: siteTexts.get('about.contact'),
-                  text: _viewModel!.about.email
+                  text: siteTexts.translate(_viewModel!.about.email)
                 ),
               ]
             ),

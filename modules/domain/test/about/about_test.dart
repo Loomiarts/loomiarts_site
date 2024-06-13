@@ -8,8 +8,12 @@ void main() {
     test('extracts from JSON', () {
       // given:
       final json = {
-        'text': 'sample text',
-        'email': 'john@beatles.com',
+        'text': {
+          'base': 'sample text'
+        },
+        'email': {
+          'base': 'john@beatles.com'
+        },
         'socialMediaLinks': [
           {
               'name': 'Twitter',
