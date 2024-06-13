@@ -6,6 +6,7 @@ import 'package:presentation/src/game/game_page.dart';
 
 import 'home_router_impl.dart';
 import 'home_tile.dart';
+import '../common/app_bar.dart' as site_app_bar;
 import '../common/full_screen_loader.dart';
 import '../internationalization/site_texts.dart';
 
@@ -45,6 +46,7 @@ class HomePageState extends State<HomePage> {
           return const FullScreenLoader();
         } else {
           return Scaffold(
+            appBar: site_app_bar.AppBar(),
             body: Center(
               child: ListView(
                 padding: const EdgeInsets.all(40.0),
