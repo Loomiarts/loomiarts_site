@@ -1,10 +1,10 @@
 import '../common/external_link.dart';
-import '../internationalization/i18n_string.dart';
+import '../internationalization/loc_string.dart';
 
 /// Describes a feature of a game.
 class GameFeature {
-  I18nString title = I18nString.base('');
-  I18nString text = I18nString.base('');
+  LocString title = LocString.base('');
+  LocString text = LocString.base('');
 
   GameFeature(this.title, this.text);
 
@@ -13,8 +13,8 @@ class GameFeature {
       'title': Map<String, dynamic> title,
       'text': Map<String, dynamic> text,
     }) {
-      this.title = I18nString.fromJson(title);
-      this.text = I18nString.fromJson(text);
+      this.title = LocString.fromJson(title);
+      this.text = LocString.fromJson(text);
     }
   }
 
@@ -37,15 +37,15 @@ class GameFeature {
 
 /// Model containing data for a single game.
 class Game {
-  I18nString name = I18nString.base('');
-  I18nString shortDescription = I18nString.base('');
-  I18nString posterImage = I18nString.base('');
-  I18nString bannerImage = I18nString.base('');
-  I18nString developedBy = I18nString.base('');
-  I18nString publishedBy = I18nString.base('');
-  I18nString genre = I18nString.base('');
-  I18nString alternativeName = I18nString.base('');
-  List<I18nString> awards = [];
+  LocString name = LocString.base('');
+  LocString shortDescription = LocString.base('');
+  LocString posterImage = LocString.base('');
+  LocString bannerImage = LocString.base('');
+  LocString developedBy = LocString.base('');
+  LocString publishedBy = LocString.base('');
+  LocString genre = LocString.base('');
+  LocString alternativeName = LocString.base('');
+  List<LocString> awards = [];
   List<GameFeature> features = [];
   List<ExternalLink> stores = [];
   List<ExternalLink> socialMediaLinks = [];
@@ -71,15 +71,15 @@ class Game {
       'posterImage': Map<String, dynamic> posterImage,
       'bannerImage': Map<String, dynamic> bannerImage,
     }) {
-      this.name = I18nString.fromJson(name);
-      this.developedBy = I18nString.fromJson(developedBy);
-      this.publishedBy = I18nString.fromJson(publishedBy);
-      this.genre = I18nString.fromJson(genre);
-      this.shortDescription = I18nString.fromJson(shortDescription);
-      this.alternativeName = I18nString.fromJson(alternativeName);
-      this.posterImage = I18nString.fromJson(posterImage);
-      this.bannerImage = I18nString.fromJson(bannerImage);
-      this.awards = List<I18nString>.from(awards.map((e) => I18nString.fromJson(e)));
+      this.name = LocString.fromJson(name);
+      this.developedBy = LocString.fromJson(developedBy);
+      this.publishedBy = LocString.fromJson(publishedBy);
+      this.genre = LocString.fromJson(genre);
+      this.shortDescription = LocString.fromJson(shortDescription);
+      this.alternativeName = LocString.fromJson(alternativeName);
+      this.posterImage = LocString.fromJson(posterImage);
+      this.bannerImage = LocString.fromJson(bannerImage);
+      this.awards = List<LocString>.from(awards.map((e) => LocString.fromJson(e)));
       this.features = GameFeature.manyFromJson(features);
       this.stores = ExternalLink.manyFromJson(stores);
       this.videos = ExternalLink.manyFromJson(videos);

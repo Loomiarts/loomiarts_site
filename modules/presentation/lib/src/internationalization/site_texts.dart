@@ -23,8 +23,8 @@ class SiteTexts {
     return (I18nRepositoryImpl().getAll())[key]?.toString(languageCode: _locale.languageCode) ?? '';
   }
 
-  String translate(I18nString i18nString) {
-    return i18nString.toString(languageCode: _locale.languageCode);
+  String translate(LocString LocString) {
+    return LocString.toString(languageCode: _locale.languageCode);
   }
 }
 

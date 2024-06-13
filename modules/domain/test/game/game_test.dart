@@ -83,10 +83,10 @@ void main() {
         ExternalLink('Read more', 'www.site.com'),
       ]);
       expect(game.features, [
-        GameFeature(I18nString.base('This is a game'), I18nString.base('True story!')),
-        GameFeature(I18nString.base('Gameplay'), I18nString.base('Play a game!')),
+        GameFeature(LocString.base('This is a game'), LocString.base('True story!')),
+        GameFeature(LocString.base('Gameplay'), LocString.base('Play a game!')),
       ]);
-      expect(game.awards, [I18nString.base('Oscar'), I18nString.base('BIG Festival')]);
+      expect(game.awards, [LocString.base('Oscar'), LocString.base('BIG Festival')]);
     });
 
     test('extracts many from JSON', () {

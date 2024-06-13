@@ -5,17 +5,17 @@ import 'package:flutter/services.dart';
 
 class I18nRepositoryImpl implements I18nRepository {
 
-  static Map<String, I18nString> _strings = {};
+  static Map<String, LocString> _strings = {};
   
   @override
   Future<void> loadStrings() async {
     final jsonString = await rootBundle.loadString('assets/texts.json');
     final json = jsonDecode(jsonString) as Map<String, dynamic>;
-    _strings = I18nString.manyFromJson(json);
+    _strings = LocString.manyFromJson(json);
   }
 
   @override
-  Map<String, I18nString> getAll() {
+  Map<String, LocString> getAll() {
     return _strings;
   }
 }

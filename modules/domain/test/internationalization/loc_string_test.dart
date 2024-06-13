@@ -1,18 +1,35 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:domain/domain.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
 
-  group('tests the I18nString', () {
+  group('tests the LocString', () {
 
     test('gets the string with toString', () {
       // given:
-      final str = I18nString('hello, world!', localizedStrings: {'pt': 'olá, mundo!'});
+      final str = LocString('hello, world!', localizedStrings: {'pt': 'olá, mundo!'});
 
       // then:
       expect(str.toString(), 'hello, world!');
       expect(str.toString(languageCode: 'pt'), 'olá, mundo!');
       expect(str.toString(languageCode: 'unknow'), 'hello, world!');
+    });
+
+    test('compares with other object', () {
+      // given:
+      final locStr = LocString('hello, world!', localizedStrings: {'pt': 'olá, mundo!'});
+      final other = LocString('hello, world!', localizedStrings: {'pt': 'olá, mundo!'});
+      final otherWithDifferentLocalizedStrings = LocString(
+        'hello, world!', localizedStrings: {'it': 'ciao mondo!'}
+      );
+
+      // then:
+      expect(locStr == other, true);
+      expect(locStr == otherWithDifferentLocalizedStrings, false);
+      expect(locStr == 'hello, world!', true);
+      expect(locStr == 'different string', false);
     });
 
     test('extracts one object from JSON', () {
@@ -24,7 +41,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.fromJson(json);
+      final result = LocString.fromJson(json);
 
       // then:
       expect(result.base, 'hello, world!');
@@ -38,7 +55,7 @@ void main() {
       Map<String, dynamic> json = {};
 
       // when:
-      final result = I18nString.fromJson(json);
+      final result = LocString.fromJson(json);
 
       // then:
       expect(result.base, '');
@@ -53,7 +70,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.fromJson(json);
+      final result = LocString.fromJson(json);
 
       // then:
       expect(result.base, '');
@@ -71,7 +88,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.fromJson(json);
+      final result = LocString.fromJson(json);
 
       // then:
       expect(result.base, '');
@@ -91,7 +108,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.manyFromJson(json);
+      final result = LocString.manyFromJson(json);
 
       // then:
       expect(result.length, 2);
@@ -110,7 +127,7 @@ void main() {
       };
 
       // when:
-      final result = I18nString.manyFromJson(json);
+      final result = LocString.manyFromJson(json);
 
       // then:
       expect(result.length, 1);

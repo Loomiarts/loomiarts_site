@@ -16,11 +16,11 @@ void main() {
     test('loads the view model data', () async {
       // given:
       final game1 = Game()
-        ..name = I18nString.base('Marvelous Game')
-        ..developedBy = I18nString.base('Loomiarts');
+        ..name = LocString.base('Marvelous Game')
+        ..developedBy = LocString.base('Loomiarts');
       final game2 = Game()
-        ..name = I18nString.base('Another Marvelous Game')
-        ..developedBy = I18nString.base('Loomiarts and Konami');
+        ..name = LocString.base('Another Marvelous Game')
+        ..developedBy = LocString.base('Loomiarts and Konami');
       when(gameRepository.getGames()).thenAnswer((_) {
         return Future.sync(() => [game1, game2]);
       });
@@ -39,8 +39,8 @@ void main() {
     test('navigates to the selected game', () {
       // given:
       final game = Game()
-        ..name = I18nString.base('Marvelous Game')
-        ..developedBy = I18nString.base('Loomiarts');
+        ..name = LocString.base('Marvelous Game')
+        ..developedBy = LocString.base('Loomiarts');
       
       // when:
       viewModel.selectGame(game);
