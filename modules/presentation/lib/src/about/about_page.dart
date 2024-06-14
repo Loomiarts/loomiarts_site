@@ -6,7 +6,7 @@ import '../common/external_links_section.dart';
 import '../common/full_screen_loader.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
-import '../internationalization/site_texts.dart';
+import '../internationalization/loc_strings.dart';
 import 'about_router_impl.dart';
 
 /// The view for the about page.
@@ -35,7 +35,7 @@ class AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    final siteTexts = SiteTexts.of(context);
+    final siteTexts = LocStrings.of(context);
 
     return FutureBuilder(
       future: _loading,

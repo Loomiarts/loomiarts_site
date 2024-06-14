@@ -8,7 +8,7 @@ import 'home_router_impl.dart';
 import 'home_tile.dart';
 import '../common/app_bar.dart' as site_app_bar;
 import '../common/full_screen_loader.dart';
-import '../internationalization/site_texts.dart';
+import '../internationalization/loc_strings.dart';
 
 /// The view for the home page.
 class HomePage extends StatefulWidget {
@@ -37,7 +37,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     
-    final siteTexts = SiteTexts.of(context);
+    final siteTexts = LocStrings.of(context);
 
     return FutureBuilder(
       future: _loading,

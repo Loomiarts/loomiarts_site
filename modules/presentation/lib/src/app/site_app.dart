@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../home/home_page.dart';
-import '../internationalization/site_texts.dart';
+import '../internationalization/loc_strings.dart';
 
 /// Main app implementation.
 class SiteApp extends StatefulWidget {
@@ -39,7 +39,7 @@ class SiteAppState extends State<SiteApp> implements I18nDelegate<SiteApp> {
         useMaterial3: true,
       ),
       localizationsDelegates: const [
-        SiteTexts.delegate,
+        LocStrings.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],

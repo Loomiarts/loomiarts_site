@@ -2,17 +2,17 @@ import 'package:application/application.dart';
 import 'package:flutter/widgets.dart';
 import 'package:infrastructure/infrastructure.dart';
 
-class SiteTexts {
+class LocStrings {
 
-  static SiteTexts of(BuildContext context) {
-    return Localizations.of<SiteTexts>(context, SiteTexts) ?? SiteTexts(const Locale('en'));
+  static LocStrings of(BuildContext context) {
+    return Localizations.of<LocStrings>(context, LocStrings) ?? LocStrings(const Locale('en'));
   }
 
-  static const LocalizationsDelegate<SiteTexts> delegate = _LocalizationsDelegate();
+  static const LocalizationsDelegate<LocStrings> delegate = _LocalizationsDelegate();
 
   final Locale _locale;
 
-  SiteTexts(this._locale);
+  LocStrings(this._locale);
 
   Future load() async {
     final repo = I18nRepositoryImpl();
@@ -28,7 +28,7 @@ class SiteTexts {
   }
 }
 
-class _LocalizationsDelegate extends LocalizationsDelegate<SiteTexts> {
+class _LocalizationsDelegate extends LocalizationsDelegate<LocStrings> {
 
   const _LocalizationsDelegate();
 
@@ -42,8 +42,8 @@ class _LocalizationsDelegate extends LocalizationsDelegate<SiteTexts> {
   }
 
   @override
-  Future<SiteTexts> load(Locale locale) async {
-    final siteTexts = SiteTexts(locale);
+  Future<LocStrings> load(Locale locale) async {
+    final siteTexts = LocStrings(locale);
     await siteTexts.load();
     return siteTexts;
   }

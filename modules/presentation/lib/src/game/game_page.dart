@@ -5,7 +5,7 @@ import '../common/page_section.dart';
 import '../common/external_links_section.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
-import '../internationalization/site_texts.dart';
+import '../internationalization/loc_strings.dart';
 import 'game_router_impl.dart';
 
 /// The view for the game page.
@@ -33,7 +33,7 @@ class GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
 
     final viewModel = GameViewModel(GameRouterImpl(), game);
-    final siteTexts = SiteTexts.of(context);
+    final siteTexts = LocStrings.of(context);
 
     final theme = Theme.of(context);
     final featuresTitleStyle = theme.textTheme.headlineSmall;
