@@ -15,12 +15,12 @@ class LocStrings {
   LocStrings(this._locale);
 
   Future load() async {
-    final repo = I18nRepositoryImpl();
+    final repo = I18nRepositoryImpl.withoutContext();
     await repo.loadStrings();
   }
 
   String get(String key) {
-    return (I18nRepositoryImpl().getAllStrings())[key]?.toString(languageCode: _locale.languageCode) ?? '';
+    return (I18nRepositoryImpl.withoutContext().getAllStrings())[key]?.toString(languageCode: _locale.languageCode) ?? '';
   }
 
   String translate(LocString locString) {
@@ -34,18 +34,14 @@ class _LocalizationsDelegate extends LocalizationsDelegate<LocStrings> {
 
   @override
   bool isSupported(Locale locale) {
-    if (locale.languageCode case 'pt' || 'en') {
-      return true;
-    } else {
-      return false;
-    }
+    return Language.values.map((e) => e.languageCode).contains(locale.languageCode);
   }
 
   @override
   Future<LocStrings> load(Locale locale) async {
-    final siteTexts = LocStrings(locale);
-    await siteTexts.load();
-    return siteTexts;
+    final locStrings = LocStrings(locale);
+    await locStrings.load();
+    return locStrings;
   }
 
   @override

@@ -29,7 +29,7 @@ class AboutPageState extends State<AboutPage> {
   @override
   void initState() {
     super.initState();
-    _viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl(), I18nRepositoryImpl());
+    _viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl(), I18nRepositoryImpl(context));
     _loading = _viewModel?.load();
   }
 

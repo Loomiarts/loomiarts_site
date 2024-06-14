@@ -11,7 +11,9 @@ class I18nRepositoryImpl implements I18nRepository {
 
   final BuildContext? _buildContext;
 
-  I18nRepositoryImpl([this._buildContext]);
+  I18nRepositoryImpl(this._buildContext);
+
+  I18nRepositoryImpl.withoutContext(): _buildContext = null;
   
   @override
   Future<void> loadStrings() async {
