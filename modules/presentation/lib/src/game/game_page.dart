@@ -1,5 +1,6 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
+import 'package:infrastructure/infrastructure.dart';
 
 import '../common/page_section.dart';
 import '../common/external_links_section.dart';
@@ -32,7 +33,7 @@ class GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
 
-    final viewModel = GameViewModel(GameRouterImpl(), game);
+    final viewModel = GameViewModel(GameRouterImpl(), game, I18nRepositoryImpl(context));
     final siteTexts = LocStrings.of(context);
 
     final theme = Theme.of(context);

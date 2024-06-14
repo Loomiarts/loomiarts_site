@@ -4,14 +4,15 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'game_view_model_test.mocks.dart';
 
-@GenerateMocks([GameRouter])
+@GenerateMocks([GameRouter, I18nRepository])
 void main() {
 
   group('executes the view model flow', () {
 
     final game = Game();
     final router = MockGameRouter();
-    final viewModel = GameViewModel(router, game);
+    final i18nRepository = MockI18nRepository();
+    final viewModel = GameViewModel(router, game, i18nRepository);
 
     test('navigates back', () {
       // when:

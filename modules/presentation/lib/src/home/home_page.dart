@@ -30,7 +30,7 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _viewModel = HomeViewModel(HomeRouterImpl(), GameRepositoryImpl());
+    _viewModel = HomeViewModel(HomeRouterImpl(), GameRepositoryImpl(), I18nRepositoryImpl());
     _loading = _viewModel?.load();
   }
 

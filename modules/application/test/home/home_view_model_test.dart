@@ -4,14 +4,15 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'home_view_model_test.mocks.dart';
 
-@GenerateMocks([HomeRouter, GameRepository])
+@GenerateMocks([HomeRouter, GameRepository, I18nRepository])
 void main() {
 
   group('executes the view model flow', () {
 
     final router = MockHomeRouter();
     final gameRepository = MockGameRepository();
-    final viewModel = HomeViewModel(router, gameRepository);
+    final i18nRepository = MockI18nRepository();
+    final viewModel = HomeViewModel(router, gameRepository, i18nRepository);
 
     test('loads the view model data', () async {
       // given:

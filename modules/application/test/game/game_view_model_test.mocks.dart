@@ -3,6 +3,8 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'dart:async' as _i4;
+
 import 'package:application/src/game/game_router.dart' as _i2;
 import 'package:domain/domain.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
@@ -45,4 +47,47 @@ class MockGameRouter extends _i1.Mock implements _i2.GameRouter {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [I18nRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockI18nRepository extends _i1.Mock implements _i3.I18nRepository {
+  MockI18nRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i3.Language get currentLanguage => (super.noSuchMethod(
+        Invocation.getter(#currentLanguage),
+        returnValue: _i3.Language.english,
+      ) as _i3.Language);
+
+  @override
+  set currentLanguage(_i3.Language? newCurrentLanguage) => super.noSuchMethod(
+        Invocation.setter(
+          #currentLanguage,
+          newCurrentLanguage,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i4.Future<void> loadStrings() => (super.noSuchMethod(
+        Invocation.method(
+          #loadStrings,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  Map<String, _i3.LocString> getAllStrings() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllStrings,
+          [],
+        ),
+        returnValue: <String, _i3.LocString>{},
+      ) as Map<String, _i3.LocString>);
 }

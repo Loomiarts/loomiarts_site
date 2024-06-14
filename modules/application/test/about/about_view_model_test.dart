@@ -1,17 +1,20 @@
 import 'package:application/application.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+
 import 'about_view_model_test.mocks.dart';
 
-@GenerateMocks([AboutRouter, AboutRepository])
+@GenerateMocks([AboutRouter, AboutRepository, I18nRepository])
 void main() {
 
   group('executes the view model flow', () {
 
     final router = MockAboutRouter();
     final aboutRepository = MockAboutRepository();
-    final viewModel = AboutViewModel(router, aboutRepository);
+    final i18nRepository = MockI18nRepository();
+    final viewModel = AboutViewModel(router, aboutRepository, i18nRepository);
 
     test('loads the view model data', () async {
       // given:

@@ -82,3 +82,46 @@ class MockAboutRepository extends _i1.Mock implements _i2.AboutRepository {
         )),
       ) as _i4.Future<_i2.About>);
 }
+
+/// A class which mocks [I18nRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockI18nRepository extends _i1.Mock implements _i2.I18nRepository {
+  MockI18nRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.Language get currentLanguage => (super.noSuchMethod(
+        Invocation.getter(#currentLanguage),
+        returnValue: _i2.Language.english,
+      ) as _i2.Language);
+
+  @override
+  set currentLanguage(_i2.Language? newCurrentLanguage) => super.noSuchMethod(
+        Invocation.setter(
+          #currentLanguage,
+          newCurrentLanguage,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i4.Future<void> loadStrings() => (super.noSuchMethod(
+        Invocation.method(
+          #loadStrings,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  Map<String, _i2.LocString> getAllStrings() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllStrings,
+          [],
+        ),
+        returnValue: <String, _i2.LocString>{},
+      ) as Map<String, _i2.LocString>);
+}
