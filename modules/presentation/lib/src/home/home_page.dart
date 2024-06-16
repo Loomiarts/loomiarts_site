@@ -23,13 +23,13 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
 
   Future? _loading;
-  HomeViewModel? _viewModel;
+  late final HomeViewModel viewModel;
 
   @override
   void initState() {
     super.initState();
-    _viewModel = HomeViewModel(HomeRouterImpl(Navigator.of(context)), GameRepositoryImpl(), I18nRepositoryImpl(context));
-    _loading = _viewModel?.load();
+    viewModel = HomeViewModel(HomeRouterImpl(Navigator.of(context)), GameRepositoryImpl(), I18nRepositoryImpl(context));
+    _loading = viewModel.load();
   }
 
   @override
@@ -53,18 +53,18 @@ class HomePageState extends State<HomePage> {
                   Wrap(
                     alignment: WrapAlignment.center,
                     children: [
-                      for (var game in _viewModel!.games) HomeTile(
+                      for (var game in viewModel.games) HomeTile(
                         title: siteTexts.get("home.game"),
                         imageAsset: siteTexts.translate(game.posterImage),
                         onTap: () {
-                          _viewModel?.selectGame(game);
+                          viewModel.selectGame(game);
                         },
                       ),
                       HomeTile(
                         title: siteTexts.get("home.about"),
                         imageAsset: 'assets/loomiarts_logo.png',
                         onTap: () {
-                          _viewModel?.selectAbout();
+                          viewModel.selectAbout();
                         },
                       ),
                     ],
