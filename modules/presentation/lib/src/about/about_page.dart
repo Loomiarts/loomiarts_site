@@ -1,22 +1,23 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
-import 'package:infrastructure/infrastructure.dart';
 
 import '../common/external_links_section.dart';
 import '../common/full_screen_loader.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
 import '../internationalization/loc_strings.dart';
-import 'about_router_impl.dart';
 
 /// The view for the about page.
 class AboutPage extends StatefulWidget {
 
-  const AboutPage({super.key});
+  final AboutViewModel viewModel;
+
+  const AboutPage({super.key, required this.viewModel});
   
   @override
   State<StatefulWidget> createState() {
-    return AboutPageState();
+    // ignore: no_logic_in_create_state
+    return AboutPageState(viewModel);
   }
 }
 
@@ -24,13 +25,14 @@ class AboutPage extends StatefulWidget {
 class AboutPageState extends State<AboutPage> {
 
   Future? _loading;
-  AboutViewModel? _viewModel;
+  AboutViewModel viewModel;
+
+  AboutPageState(this.viewModel);
 
   @override
   void initState() {
     super.initState();
-    _viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl(), I18nRepositoryImpl(context));
-    _loading = _viewModel?.load();
+    _loading = viewModel.load();
   }
 
   @override
@@ -57,20 +59,20 @@ class AboutPageState extends State<AboutPage> {
                 const SizedBox(height: 40),
                 TextSection(
                   title: siteTexts.get('about.title'),
-                  text: siteTexts.translate(_viewModel!.about.text)
+                  text: siteTexts.translate(viewModel.about.text)
                 ),
                 const SizedBox(height: 20),
                 ExternalLinksSection(
                   title: siteTexts.get('about.socialMediaAndOtherLinks'),
-                  externalLinks: _viewModel!.about.socialMediaLinks,
+                  externalLinks: viewModel.about.socialMediaLinks,
                   onLinkOpened: (externalLink) {
-                    _viewModel!.openSocialMediaLink(externalLink);
+                    viewModel.openSocialMediaLink(externalLink);
                   }
                 ),
                 const SizedBox(height: 20),
                 TextSection(
                   title: siteTexts.get('about.contact'),
-                  text: siteTexts.translate(_viewModel!.about.email)
+                  text: siteTexts.translate(viewModel.about.email)
                 ),
               ]
             ),

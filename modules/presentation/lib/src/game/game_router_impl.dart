@@ -7,7 +7,7 @@ import 'game_page.dart';
 
 class GameRouterImpl implements GameRouter {
 
-  BuildContext _context;
+  final BuildContext _context;
 
   GameRouterImpl(this._context);
 
