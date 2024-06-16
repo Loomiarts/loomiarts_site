@@ -28,6 +28,11 @@ class GameFeature {
   bool operator ==(covariant GameFeature other) {
     return title == other.title && text == other.text;
   }
+  
+  @override
+  int get hashCode {
+    return Object.hash(title, text);
+  }
 
   @override
   String toString() {

@@ -22,7 +22,13 @@ class ExternalLink {
   }
 
   @override
-  bool operator ==(covariant ExternalLink e) {
-    return name == e.name && url == e.url;
+  bool operator ==(covariant ExternalLink other) {
+    return name == other.name && url == other.url;
   }
+  
+  @override
+  int get hashCode {
+    return Object.hash(name, url);
+  }
+
 }

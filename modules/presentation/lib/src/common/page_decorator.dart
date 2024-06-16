@@ -13,7 +13,7 @@ class PageDecorator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: site_app_bar.AppBar(),
+      appBar: const site_app_bar.AppBar(),
       body: Center(
         child: ListView(
           padding: const EdgeInsets.all(40.0),

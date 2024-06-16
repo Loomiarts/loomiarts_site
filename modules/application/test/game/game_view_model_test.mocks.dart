@@ -31,15 +31,6 @@ class MockGameRouter extends _i1.Mock implements _i2.GameRouter {
   }
 
   @override
-  void navigateBack() => super.noSuchMethod(
-        Invocation.method(
-          #navigateBack,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
   void navigateToExternalLink(_i3.ExternalLink? link) => super.noSuchMethod(
         Invocation.method(
           #navigateToExternalLink,

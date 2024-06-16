@@ -50,4 +50,9 @@ class LocString {
       return false;
     }
   }
+  
+  @override
+  int get hashCode {
+    return Object.hash(base, localizedStrings);
+  }
 }

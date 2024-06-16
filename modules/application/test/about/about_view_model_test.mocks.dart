@@ -41,15 +41,6 @@ class MockAboutRouter extends _i1.Mock implements _i3.AboutRouter {
   }
 
   @override
-  void navigateBack() => super.noSuchMethod(
-        Invocation.method(
-          #navigateBack,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
   void navigateToSocialMediaLink(_i2.ExternalLink? link) => super.noSuchMethod(
         Invocation.method(
           #navigateToSocialMediaLink,
