@@ -20,7 +20,7 @@ class PageSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: titlesStyle),
+        SelectableText(title, style: titlesStyle),
         const SizedBox(height: 15),
         child
       ],

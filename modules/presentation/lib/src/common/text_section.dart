@@ -20,7 +20,7 @@ base class TextSection extends StatelessWidget {
 
     return PageSection(
       title: title,
-      child: Text(text, style: bodyStyle,)
+      child: SelectableText(text, style: bodyStyle,)
     );
   }
 }

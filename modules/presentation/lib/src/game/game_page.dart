@@ -88,9 +88,9 @@ class GamePageState extends State<GamePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 15),
-                      Text(locStrings.translate(feature.title), style: featuresTitleStyle),
+                      SelectableText(locStrings.translate(feature.title), style: featuresTitleStyle),
                       const SizedBox(height: 10),
-                      Text(locStrings.translate(feature.text), style: featuresTextStyle),
+                      SelectableText(locStrings.translate(feature.text), style: featuresTextStyle),
                     ],
                   )
               ],
@@ -125,7 +125,7 @@ class GamePageState extends State<GamePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 15),
-                      Text('• $award', style: awardsTextStyle),
+                      SelectableText('• $award', style: awardsTextStyle),
                     ],
                   )
               ],

@@ -54,6 +54,7 @@ class AboutPageState extends State<AboutPage> {
                   child: Image.asset(
                     'assets/loomiarts_logo_transparent.png',
                     alignment: Alignment.centerLeft,
+                    isAntiAlias: true,
                   )
                 ),
                 const SizedBox(height: 40),
