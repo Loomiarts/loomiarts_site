@@ -1,5 +1,6 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
+import 'package:presentation/src/game/game_router_impl.dart';
 
 import '../about/about_page.dart';
 import '../game/game_page.dart';
@@ -21,7 +22,7 @@ class HomeRouterImpl implements HomeRouter {
   @override
   void navigateToGame(Game game) {
     _navigator.push(
-      MaterialPageRoute(builder: (context) => GamePage(game: game))
+      MaterialPageRoute(builder: (context) => GameRouterImpl(context).createWidget(game: game))
     );
   }
 }
