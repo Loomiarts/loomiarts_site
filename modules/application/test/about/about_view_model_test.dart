@@ -32,12 +32,5 @@ void main() {
       expect(viewModel.about, about);
     });
 
-    test('navigates back', () {
-      // when:
-      viewModel.navigateBack();
-
-      // then:
-      verify(router.navigateBack());
-    });
   });
 }

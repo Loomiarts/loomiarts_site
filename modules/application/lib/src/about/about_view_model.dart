@@ -15,10 +15,6 @@ class AboutViewModel extends CommonViewModel {
     about = await _aboutRepository.getAbout();
   }
 
-  void navigateBack() {
-    _router.navigateBack();
-  }
-
   void openSocialMediaLink(ExternalLink link) {
     _router.navigateToSocialMediaLink(link);
   }

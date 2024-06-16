@@ -11,10 +11,6 @@ class GameViewModel extends CommonViewModel {
 
   GameViewModel(this._router, this.game, super._i18nRepository);
 
-  void navigateBack() {
-    _router.navigateBack();
-  }
-
   void openSocialMediaLink(ExternalLink link) {
     _router.navigateToExternalLink(link);
   }

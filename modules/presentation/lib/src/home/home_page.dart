@@ -30,7 +30,7 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _viewModel = HomeViewModel(HomeRouterImpl(), GameRepositoryImpl(), I18nRepositoryImpl(context));
+    _viewModel = HomeViewModel(HomeRouterImpl(Navigator.of(context)), GameRepositoryImpl(), I18nRepositoryImpl(context));
     _loading = _viewModel?.load();
   }
 
@@ -59,18 +59,14 @@ class HomePageState extends State<HomePage> {
                         title: siteTexts.get("home.game"),
                         imageAsset: siteTexts.translate(game.posterImage),
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => GamePage(game: game))
-                          );
+                          _viewModel?.selectGame(game);
                         },
                       ),
                       HomeTile(
                         title: siteTexts.get("home.about"),
                         imageAsset: 'assets/loomiarts_logo.png',
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => const AboutPage())
-                          );
+                          _viewModel?.selectAbout();
                         },
                       ),
                     ],

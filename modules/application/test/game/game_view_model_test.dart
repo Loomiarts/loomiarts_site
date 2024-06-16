@@ -14,14 +14,6 @@ void main() {
     final i18nRepository = MockI18nRepository();
     final viewModel = GameViewModel(router, game, i18nRepository);
 
-    test('navigates back', () {
-      // when:
-      viewModel.navigateBack();
-
-      // then:
-      verify(router.navigateBack());
-    });
-
     test('navigates to social media link', () {
       // when:
       viewModel.openSocialMediaLink(ExternalLink('Twitter', 'https://twitter.com/loomiarts'));
