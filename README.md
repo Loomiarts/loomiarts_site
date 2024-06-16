@@ -1,16 +1,20 @@
-# loomiarts_site
+# Loomiarts website
 
-A new Flutter project.
+This is the source code of the Loomiarts website (loomiarts.com), created with Flutter.
 
-## Getting Started
+## DDD
 
-This project is a starting point for a Flutter application.
+Although the website is very simple (a home page, an "about" page and a game page), I made the project using DDD only as a proof of concept, since it was my first time using Flutter and I was experimenting how well it would work with this kind of architecture.
 
-A few resources to get you started if this is your first Flutter project:
+And I think it went very well: I created four different modules, imported as completely separated dependencies, one for each layer: domain, infrastructure, application and presentation. The main function inside the main.dart file contains only one line, where it creates the widget application from the presentation layer.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The pages and flows use MVVM, a pattern very usual in mobile development - which seems to work seamlessly with the DDD principles.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Here is a summary on how I used each one of these layers, which I think are very faithful on how I understand DDD:
+
+- Domain (modules/domain): entity classes like Game (containing the properties of a game) and About (containing the properties that will be shown in the about page), plus the *interface* of the repositories for these entities;
+- Infrastructure (modules/infrastructure): the *implementation* of the repositories. In the case of Game and About, the repositories are loading data from JSON files;
+- Application (modules/application): the viewmodel classes and the *interface* for the routers.
+- Presentation (modules/presentation): the widgets for each components and pages, plus the *implementation* of the routers.
+
+I did not include any dependency injection library or something like that. All dependencies are being manually created and injected in the top level layer (presentation), which works okay in a small project like this.
