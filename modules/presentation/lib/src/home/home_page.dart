@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:application/application.dart';
 import 'package:infrastructure/infrastructure.dart';
-import 'package:presentation/src/about/about_page.dart';
-import 'package:presentation/src/game/game_page.dart';
 
 import 'home_router_impl.dart';
 import 'home_tile.dart';
@@ -46,10 +44,10 @@ class HomePageState extends State<HomePage> {
           return const FullScreenLoader();
         } else {
           return Scaffold(
-            appBar: site_app_bar.AppBar(),
+            appBar: const site_app_bar.AppBar(),
             body: Center(
               child: ListView(
-                padding: const EdgeInsets.all(40.0),
+                padding: const EdgeInsets.all(20.0),
                 shrinkWrap: true,
                 children: [
                   Wrap(
