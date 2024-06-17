@@ -3,7 +3,7 @@ import 'package:infrastructure/infrastructure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import '../home/home_page.dart';
+import '../home/home_router_impl.dart';
 import '../internationalization/loc_strings.dart';
 
 /// Main app implementation.
@@ -44,7 +44,15 @@ class SiteAppState extends State<SiteApp> implements I18nDelegate<SiteApp> {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: Language.values.map((e) => Locale(e.languageCode)),
-      home: const HomePage()
+      home: _EntryPointWidget()
     );
+  }
+}
+
+class _EntryPointWidget extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return HomeRouterImpl(context).createWidget();
   }
 }

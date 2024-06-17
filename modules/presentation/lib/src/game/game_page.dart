@@ -1,44 +1,37 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
-import 'package:infrastructure/infrastructure.dart';
 
 import '../common/page_section.dart';
 import '../common/external_links_section.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
 import '../internationalization/loc_strings.dart';
-import 'game_router_impl.dart';
 
 /// The view for the game page.
 class GamePage extends StatefulWidget {
 
-  final Game game;
+  final GameViewModel viewModel;
 
-  const GamePage({super.key, required this.game});
+  const GamePage({super.key, required this.viewModel});
   
   @override
   State<StatefulWidget> createState() {
     // ignore: no_logic_in_create_state
-    return GamePageState(game);
+    return GamePageState(viewModel);
   }
 }
 
 /// The view state for the about page.
 class GamePageState extends State<GamePage> {
 
-  final Game game;
-  late final GameViewModel viewModel;
+  final GameViewModel viewModel;
 
-  GamePageState(this.game);
-
-  @override
-  void initState() {
-    super.initState();
-    viewModel = GameViewModel(GameRouterImpl(), game, I18nRepositoryImpl(context));
-  }
+  GamePageState(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
+
+    final game = viewModel.game;
 
     final locStrings = LocStrings.of(context);
 

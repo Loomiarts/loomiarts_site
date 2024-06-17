@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:application/application.dart';
-import 'package:infrastructure/infrastructure.dart';
 
-import 'home_router_impl.dart';
 import 'home_tile.dart';
 import '../common/app_bar.dart' as site_app_bar;
 import '../common/full_screen_loader.dart';
@@ -11,11 +9,14 @@ import '../internationalization/loc_strings.dart';
 /// The view for the home page.
 class HomePage extends StatefulWidget {
 
-  const HomePage({super.key});
+  final HomeViewModel viewModel;
+
+  const HomePage({super.key, required this.viewModel});
   
   @override
   State<StatefulWidget> createState() {
-    return HomePageState();
+    // ignore: no_logic_in_create_state
+    return HomePageState(viewModel);
   }
 }
 
@@ -23,12 +24,13 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
 
   Future? _loading;
-  late final HomeViewModel viewModel;
+  final HomeViewModel viewModel;
+
+  HomePageState(this.viewModel);
 
   @override
   void initState() {
     super.initState();
-    viewModel = HomeViewModel(HomeRouterImpl(Navigator.of(context)), GameRepositoryImpl(), I18nRepositoryImpl(context));
     _loading = viewModel.load();
   }
 

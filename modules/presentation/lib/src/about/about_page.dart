@@ -1,22 +1,23 @@
 import 'package:application/application.dart';
 import 'package:flutter/material.dart';
-import 'package:infrastructure/infrastructure.dart';
 
 import '../common/external_links_section.dart';
 import '../common/full_screen_loader.dart';
 import '../common/page_decorator.dart';
 import '../common/text_section.dart';
 import '../internationalization/loc_strings.dart';
-import 'about_router_impl.dart';
 
 /// The view for the about page.
 class AboutPage extends StatefulWidget {
 
-  const AboutPage({super.key});
+  final AboutViewModel viewModel;
+
+  const AboutPage({super.key, required this.viewModel});
   
   @override
   State<StatefulWidget> createState() {
-    return AboutPageState();
+    // ignore: no_logic_in_create_state
+    return AboutPageState(viewModel);
   }
 }
 
@@ -24,14 +25,13 @@ class AboutPage extends StatefulWidget {
 class AboutPageState extends State<AboutPage> {
 
   Future? _loading;
-  late final AboutViewModel viewModel;
+  final AboutViewModel viewModel;
 
-  AboutPageState();
+  AboutPageState(this.viewModel);
 
   @override
   void initState() {
     super.initState();
-    viewModel = AboutViewModel(AboutRouterImpl(), AboutRepositoryImpl(), I18nRepositoryImpl(context));
     _loading = viewModel.load();
   }
 
